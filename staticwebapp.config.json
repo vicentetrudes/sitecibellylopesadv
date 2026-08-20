@@ -1,8 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+  "routes": [
+    { "route": "/admin", "rewrite": "/admin/index.html" },
+    { "route": "/admin/*", "rewrite": "/admin/index.html" }
+  ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/*.{png,jpg,jpeg,gif,svg,webp,ico,css,js,txt,xml,webmanifest}"]
+    "exclude": ["/admin/*", "/assets/*", "/*.{png,jpg,jpeg,gif,svg,webp,ico,css,js,txt,xml,webmanifest}"]
   },
   "responseOverrides": {
     "404": { "rewrite": "/404.html", "statusCode": 404 }

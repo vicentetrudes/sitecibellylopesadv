@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cibelly Lopes | Advocacia e Consultoria Jurídica</title>
-<meta name="description" content="Advocacia e consultoria jurídica em Direito do Trabalho, Cível e Contratos, Família e Sucessões e Previdenciário. Iguape/SP, São Paulo capital e atendimento online.">
+<meta name="description" content="Advocacia e consultoria jurídica em Direito do Trabalho, Cível e Contratos, Família e Sucessões e Previdenciário. Iguape/SP, São Paulo/SP e atendimento online.">
 <meta name="author" content="Cibelly Maria Lopes da Silva">
 <meta name="theme-color" content="#1f364e">
 <meta property="og:title" content="Cibelly Lopes | Advocacia e Consultoria Jurídica">
@@ -41,315 +41,172 @@
   /* ===== Identidade visual da marca — Cibelly Lopes =====
      Azul      #1f364e    Dourado  #b49265
      Off White #f7f7f6    Cinza    #e6e6e6    Branco #ffffff
-     Títulos: Arsenal · Subtítulos: Arsenal Italic · Texto: Mona Sans Light
+     Títulos: Arsenal · Texto: Mona Sans Light
   ====================================================== */
   :root{
     --azul:#1f364e;
     --azul-esc:#16283a;
     --dourado:#b49265;
     --dourado-claro:#d3b98f;
+    --dourado-texto:#8a6a3f;
     --offwhite:#f7f7f6;
     --cinza:#e6e6e6;
+    --linha:#d9d4cb;
     --branco:#ffffff;
     --texto:#2b3440;
     --texto-sec:#5f6b78;
-    --max:1140px;
-    --h:78px;
+    --texto-claro:#d7dde4;
+    --max:1248px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{
-    font-family:'Mona Sans','Inter',system-ui,-apple-system,sans-serif;
-    font-weight:300;color:var(--texto);background:var(--offwhite);
-    line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    font-family:'Mona Sans',system-ui,-apple-system,sans-serif;font-weight:300;
+    color:var(--texto);background:var(--offwhite);line-height:1.7;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  h1,h2,h3,h4,.serif{font-family:'Arsenal',Georgia,serif;font-weight:400;line-height:1.2}
-  .ital{font-family:'Arsenal',Georgia,serif;font-style:italic}
+  h1,h2,h3{font-family:'Arsenal',Georgia,serif;font-weight:400;line-height:1.15}
   a{color:inherit}
   img{max-width:100%;display:block}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
-  section{scroll-margin-top:94px}
-
-  a:focus-visible,button:focus-visible,summary:focus-visible{
-    outline:2px solid var(--dourado);outline-offset:3px;border-radius:1px;
-  }
-  .skip{
-    position:absolute;left:-9999px;background:var(--dourado);color:var(--azul);
-    padding:12px 20px;z-index:200;font-size:.8rem;text-decoration:none;font-weight:600;
-  }
+  ul,ol{list-style:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{scroll-margin-top:88px}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--dourado);outline-offset:3px}
+  .skip{position:absolute;left:-9999px;background:var(--dourado);color:var(--azul-esc);padding:12px 20px;z-index:200;font-weight:600;text-decoration:none}
   .skip:focus{left:12px;top:12px}
+  .eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--dourado-texto)}
 
-  /* ---------- MARCA ---------- */
+  /* ---------- Botões ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 32px;font-size:1rem;font-weight:500;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+  .btn-ouro{background:var(--dourado);color:var(--azul-esc);font-weight:600}
+  .btn-ouro:hover{background:var(--dourado-claro)}
+  .btn-contorno{border:1px solid rgba(255,255,255,.5);color:#fff}
+  .btn-contorno:hover{border-color:var(--dourado-claro);color:var(--dourado-claro)}
+  .btn-azul{background:var(--azul);color:#fff}
+  .btn-azul:hover{background:var(--azul-esc)}
+
+  /* ---------- Topo ---------- */
+  .topo{position:relative;overflow:hidden;background:var(--azul);color:#fff}
+  .topo .monograma{position:absolute;right:-4vw;top:40px;font-family:'Arsenal',Georgia,serif;font-style:italic;font-size:clamp(360px,62vw,900px);line-height:.8;letter-spacing:-.06em;color:#fff;opacity:.04;pointer-events:none;user-select:none}
+  header{position:sticky;top:0;z-index:60;background:rgba(31,54,78,.97);border-bottom:1px solid rgba(180,146,101,.3);backdrop-filter:blur(10px)}
+  .nav{height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}
   .lockup{display:flex;align-items:center;gap:14px;text-decoration:none}
-  .lockup .icon{width:26px;flex:none;transition:width .3s}
-  .lockup .words{display:flex;flex-direction:column;line-height:1.05}
-  .lockup .name{
-    font-family:'Arsenal',Georgia,serif;font-size:1.32rem;letter-spacing:4px;
-    color:#fff;text-transform:uppercase;transition:font-size .3s;
-  }
-  .lockup .tag{
-    font-size:.52rem;letter-spacing:2.6px;text-transform:uppercase;
-    color:var(--dourado-claro);font-weight:400;margin-top:3px;
-  }
+  .lockup svg{width:26px;flex:none}
+  .lockup .nome{display:block;font-family:'Arsenal',Georgia,serif;font-size:1.3rem;letter-spacing:.24em;color:#fff}
+  .lockup .tag{display:block;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dourado-claro);margin-top:2px}
+  #nav ul{display:flex;align-items:center;gap:32px;font-size:.95rem;font-weight:400}
+  #nav a{text-decoration:none;color:#fff}
+  #nav a:hover{color:var(--dourado-claro)}
+  #nav .nav-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border:1px solid var(--dourado);color:var(--dourado-claro)}
+  .menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;font:inherit;font-size:.9rem;min-height:44px;padding:0 18px;cursor:pointer}
 
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky;top:0;z-index:60;background:rgba(31,54,78,.96);
-    border-bottom:1px solid rgba(180,146,101,.28);backdrop-filter:blur(12px);
-    transition:box-shadow .3s,background .3s;
-  }
-  header.stuck{box-shadow:0 10px 30px rgba(11,22,34,.28);background:rgba(24,42,61,.985)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:var(--h);gap:20px;transition:height .3s}
-  header.stuck .nav{height:64px}
-  header.stuck .lockup .icon{width:22px}
-  header.stuck .lockup .name{font-size:1.14rem}
-  nav ul{display:flex;gap:26px;list-style:none;align-items:center}
-  nav a{
-    color:#e2e7ee;text-decoration:none;font-size:.77rem;letter-spacing:1.2px;
-    text-transform:uppercase;font-weight:400;padding-bottom:4px;position:relative;transition:.25s;
-  }
-  nav a:not(.nav-cta):after{
-    content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
-    background:var(--dourado);transform:scaleX(0);transform-origin:left;transition:transform .3s;
-  }
-  nav a:not(.nav-cta):hover{color:var(--dourado-claro)}
-  nav a:not(.nav-cta):hover:after,nav a.active:after{transform:scaleX(1)}
-  nav a.active{color:var(--dourado-claro)}
-  .nav-cta{background:var(--dourado);color:var(--azul)!important;padding:10px 20px;font-weight:600}
-  .nav-cta:hover{background:var(--dourado-claro)}
-  .menu-btn{
-    display:none;background:none;border:1px solid rgba(255,255,255,.35);color:#fff;
-    padding:9px 14px;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;cursor:pointer;
-  }
-  .progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--dourado);width:0;transition:width .1s linear}
+  .hero{position:relative;min-height:calc(100vh - 88px);max-height:900px;display:flex;flex-direction:column}
+  .hero-inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:32px;padding:96px 0 80px}
+  .hero .eyebrow{color:var(--dourado-claro)}
+  .hero h1{max-width:1000px;font-size:clamp(2.5rem,6vw,5.2rem);line-height:1.05}
+  .hero p{max-width:640px;font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--texto-claro)}
+  .hero .acoes{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;padding-top:8px}
+  .faixa{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(180,146,101,.3)}
+  .faixa span{padding:28px 12px;text-align:center;font-size:.95rem;color:var(--texto-claro)}
+  .faixa span+span{border-left:1px solid rgba(180,146,101,.3)}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    background:linear-gradient(155deg,var(--azul) 0%,var(--azul-esc) 100%);
-    color:#fff;padding:106px 0 114px;position:relative;overflow:hidden;
+  /* ---------- Seções ---------- */
+  .sec{padding:112px 0}
+  .sec h2{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--azul)}
+  .centro{text-align:center}
+
+  .areas-grid{margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .area{background:#fff;border:1px solid var(--cinza);padding:44px;display:flex;flex-direction:column;gap:18px}
+  .area .icone{width:56px;height:56px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center}
+  .area .icone svg{width:26px;height:26px}
+  .area h3{font-size:2rem;color:var(--azul)}
+  .area p{font-size:1.05rem}
+  .area ul{padding-top:18px;border-top:1px solid var(--cinza);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;font-size:.95rem}
+
+  .sobre{background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+  .sobre .foto{position:relative;background:var(--azul);min-height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .sobre .foto svg{width:120px;opacity:.5}
+  .sobre .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+  .sobre .texto{padding:104px clamp(24px,6vw,96px);display:flex;flex-direction:column;gap:24px;max-width:760px}
+  .sobre h2{font-size:clamp(2rem,3.4vw,2.8rem)}
+  .sobre p{font-size:1.06rem}
+  .linha-tempo{border-left:1px solid var(--dourado);display:flex;flex-direction:column;gap:18px}
+  .linha-tempo li{padding-left:26px;display:flex;flex-direction:column}
+  .linha-tempo .ano{font-size:.82rem;font-weight:500;color:var(--dourado-texto)}
+  .linha-tempo .item{font-size:1rem;font-weight:500;color:var(--azul)}
+  .link{font-size:.95rem;font-weight:500;color:var(--azul)}
+  .link:hover{color:var(--dourado-texto)}
+
+  .atendimento{background:var(--azul);color:#fff}
+  .atendimento h2{color:#fff}
+  .etapas{margin-top:56px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(180,146,101,.35);border-left:1px solid rgba(180,146,101,.35)}
+  .etapas li{padding:40px 36px;border-right:1px solid rgba(180,146,101,.35);border-bottom:1px solid rgba(180,146,101,.35);display:flex;flex-direction:column;gap:12px}
+  .etapas .num{font-family:'Arsenal',Georgia,serif;font-size:1.25rem;color:var(--dourado-claro)}
+  .etapas h3{font-size:1.6rem;color:#fff}
+  .etapas p{font-size:1rem;color:var(--texto-claro)}
+
+  .duvidas{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:88px}
+  .faq{border-top:1px solid var(--linha)}
+  .faq details{border-bottom:1px solid var(--linha);padding:26px 0}
+  .faq summary{font-family:'Arsenal',Georgia,serif;font-size:1.45rem;color:var(--azul);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:'+';font-family:'Mona Sans',sans-serif;font-weight:300;color:var(--dourado-texto)}
+  .faq details[open] summary::after{content:'−'}
+  .faq p{margin-top:14px;font-size:1rem}
+
+  .contato{padding:0 0 112px}
+  .contato-box{background:#fff;border:1px solid var(--dourado);padding:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+  .contato-box h2{font-size:clamp(2rem,3.4vw,2.8rem);color:var(--azul)}
+  .contato-box .dados{margin-top:18px;display:flex;flex-direction:column;gap:6px;font-size:1rem}
+  .contato-box .dados a{color:var(--azul)}
+  .contato-box .acoes{display:flex;flex-direction:column;gap:12px}
+  .contato-box .btn-linha{border:1px solid var(--azul);color:var(--azul)}
+  .contato-box .btn-linha:hover{background:var(--offwhite)}
+  .privacidade{margin-top:28px;font-size:.88rem;color:var(--texto-sec);max-width:880px}
+
+  footer{background:var(--azul);color:#aab4bf;padding:56px 0 40px;font-size:.9rem}
+  .rodape{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:24px}
+  .rodape .marca{font-family:'Arsenal',Georgia,serif;font-size:1.1rem;letter-spacing:.24em;color:var(--dourado-claro)}
+  .rodape ul{display:flex;flex-wrap:wrap;gap:8px 24px}
+  .rodape a{text-decoration:none}
+  .rodape a:hover{color:var(--dourado-claro)}
+  .disclaimer{margin-top:32px;padding-top:24px;border-top:1px solid rgba(180,146,101,.25);font-size:.8rem;line-height:1.6;color:#8f9aa6}
+
+  .float-wa{position:fixed;right:20px;bottom:20px;z-index:70;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:26px;background:var(--dourado);color:var(--azul-esc);font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(22,40,58,.25)}
+  .float-wa svg{width:20px;height:20px}
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width:1024px){
+    #nav ul{gap:22px}
+    .etapas{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .duvidas{grid-template-columns:1fr;gap:40px}
   }
-  .hero .pattern{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:520px;opacity:.07;pointer-events:none}
-  .hero-inner{position:relative;z-index:2;max-width:730px}
-  .hero h1{font-size:clamp(2.25rem,5.2vw,3.7rem);color:#fff;letter-spacing:.5px}
-  .hero .sub{
-    font-family:'Arsenal',Georgia,serif;font-style:italic;
-    font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--dourado-claro);margin-top:16px;
+  @media (max-width:860px){
+    .menu-btn{display:inline-flex;align-items:center}
+    #nav ul{display:none;position:absolute;left:0;right:0;top:88px;background:var(--azul);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 24px;border-bottom:1px solid rgba(180,146,101,.3)}
+    #nav.open ul{display:flex}
+    #nav ul li a{display:flex;min-height:48px;align-items:center}
+    #nav .nav-cta{justify-content:center;margin-top:12px}
+    .areas-grid{grid-template-columns:1fr}
+    .sobre{grid-template-columns:1fr}
+    .sobre .foto{min-height:420px}
+    .contato-box{grid-template-columns:1fr;padding:40px 28px;gap:32px}
   }
-  .rule{width:66px;height:2px;background:var(--dourado);margin:30px 0}
-  .hero p{max-width:58ch;color:#c9d2dd;font-size:1.02rem}
-  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
-  .btn{
-    display:inline-block;padding:15px 32px;text-decoration:none;font-size:.76rem;
-    letter-spacing:1.6px;text-transform:uppercase;font-weight:600;
-    border:1px solid transparent;transition:.25s;text-align:center;
-  }
-  .btn-primary{background:var(--dourado);color:var(--azul)}
-  .btn-primary:hover{background:var(--dourado-claro)}
-  .btn-ghost{border-color:rgba(255,255,255,.42);color:#fff}
-  .btn-ghost:hover{border-color:var(--dourado-claro);color:var(--dourado-claro)}
-
-  .strip{background:var(--azul-esc);border-top:1px solid rgba(180,146,101,.28)}
-  .strip .wrap{display:flex;flex-wrap:wrap;gap:14px 44px;padding-top:20px;padding-bottom:20px;justify-content:space-between}
-  .strip span{color:#b9c4d1;font-size:.77rem;letter-spacing:1.4px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
-  .strip span:before{content:"";width:5px;height:5px;background:var(--dourado);flex:none}
-
-  /* ---------- SEÇÕES ---------- */
-  .sec{padding:90px 0}
-  .section-label{font-size:.64rem;letter-spacing:3.8px;text-transform:uppercase;color:var(--dourado);margin-bottom:14px}
-  h2{font-size:clamp(1.95rem,3.6vw,2.7rem);color:var(--azul)}
-  .sub-ital{font-family:'Arsenal',serif;font-style:italic;color:var(--texto-sec);font-size:1.1rem;margin-top:6px}
-  .lead{color:var(--texto-sec);max-width:64ch;margin-top:18px}
-  .alt{background:var(--branco);border-top:1px solid var(--cinza);border-bottom:1px solid var(--cinza)}
-
-  /* ---------- SOBRE ---------- */
-  .about{display:grid;grid-template-columns:1.4fr .85fr;gap:58px;align-items:start;margin-top:38px}
-  .about p+p{margin-top:16px}
-  .pull{
-    margin:28px 0;padding:6px 0 6px 24px;border-left:2px solid var(--dourado);
-    font-family:'Arsenal',serif;font-style:italic;font-size:1.22rem;line-height:1.5;color:var(--azul);
-  }
-  .signature{margin-top:32px;padding-top:24px;border-top:1px solid var(--cinza)}
-  .signature .nome{font-family:'Arsenal',serif;font-style:italic;font-size:2rem;color:var(--azul);line-height:1}
-  .signature .oab{font-size:.74rem;letter-spacing:2.4px;text-transform:uppercase;color:var(--dourado);margin-top:8px}
-
-  .aside-sticky{position:sticky;top:96px}
-
-  .seal{
-    background:var(--branco);border:1px solid var(--cinza);border-top:3px solid var(--dourado);
-    padding:30px 26px;text-align:center;
-  }
-  .seal svg{width:34px;color:var(--dourado);margin:0 auto 16px}
-  .seal .num{font-family:'Arsenal',serif;font-size:2.1rem;color:var(--azul);line-height:1}
-  .seal .lbl{font-size:.63rem;letter-spacing:3.2px;text-transform:uppercase;color:var(--dourado);margin-top:10px}
-  .seal .desc{font-size:.82rem;color:var(--texto-sec);margin-top:14px;line-height:1.6}
-
-  .card-cred{background:var(--azul);color:#dbe2eb;padding:34px 30px;border-top:3px solid var(--dourado);margin-top:22px}
-  .card-cred h3{color:#fff;font-size:1.46rem;margin-bottom:6px}
-  .card-cred .ital{color:var(--dourado-claro);font-size:.92rem;display:block;margin-bottom:18px}
-  .card-cred ul{list-style:none;font-size:.88rem;line-height:1.6}
-  .card-cred li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.13)}
-  .card-cred li:last-child{border:0;padding-bottom:0}
-  .card-cred li b{display:block;color:#fff;font-weight:500}
-  .card-cred li em{font-family:'Arsenal',serif;color:#9fb0c2;font-size:.83rem;font-style:italic}
-
-  .verify{
-    display:flex;align-items:center;gap:12px;margin-top:24px;
-    border:1px solid rgba(180,146,101,.55);padding:13px 17px;text-decoration:none;
-    color:#dbe3ec;font-size:.78rem;line-height:1.45;transition:.25s;
-  }
-  .verify:hover{border-color:var(--dourado);background:rgba(180,146,101,.12)}
-  .verify svg{width:17px;flex:none;color:var(--dourado)}
-  .verify b{color:#fff;font-weight:500}
-
-  .quick{margin-top:22px;background:var(--branco);border:1px solid var(--cinza);padding:28px 26px}
-  .quick h4{font-size:1.26rem;color:var(--azul);margin-bottom:10px}
-  .quick p{font-size:.85rem;color:var(--texto-sec);margin-bottom:20px}
-  .quick .btn{display:block;padding:14px 16px;font-size:.71rem;letter-spacing:1.2px}
-
-  /* ---------- ÁREAS ---------- */
-  .grid-areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(266px,1fr));gap:26px;margin-top:48px}
-  .area{
-    background:var(--offwhite);border:1px solid var(--cinza);padding:34px 30px;
-    transition:.28s;position:relative;display:flex;flex-direction:column;
-  }
-  .area:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--dourado);transform:scaleX(0);transform-origin:left;transition:.3s}
-  .area:hover{box-shadow:0 16px 38px rgba(31,54,78,.11);transform:translateY(-4px)}
-  .area:hover:before{transform:scaleX(1)}
-  .area .ico{width:30px;height:30px;color:var(--dourado);margin-bottom:18px}
-  .area h3{font-size:1.4rem;color:var(--azul);margin-bottom:10px}
-  .area p{font-size:.89rem;color:var(--texto-sec)}
-  .area ul{margin-top:16px;padding-left:17px;font-size:.85rem;color:var(--texto-sec)}
-  .area li{margin-bottom:6px}
-  .area li::marker{color:var(--dourado)}
-  .area-link{
-    margin-top:auto;padding-top:22px;font-size:.74rem;letter-spacing:1.4px;text-transform:uppercase;
-    color:var(--azul);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:9px;
-    transition:.25s;
-  }
-  .area-link svg{width:14px;transition:transform .25s}
-  .area-link:hover{color:var(--dourado)}
-  .area-link:hover svg{transform:translateX(4px)}
-
-  /* ---------- ATENDIMENTO ---------- */
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(218px,1fr));gap:32px;margin-top:52px;counter-reset:s}
-  .step{counter-increment:s;padding-top:26px;border-top:1px solid var(--cinza);position:relative}
-  .step:after{content:"";position:absolute;left:0;top:-1px;width:36px;height:2px;background:var(--dourado)}
-  .step:before{content:"0" counter(s);font-family:'Arsenal',serif;font-size:2.5rem;color:var(--dourado);line-height:1;display:block;margin-bottom:12px}
-  .step h3{font-size:1.2rem;color:var(--azul);margin-bottom:8px}
-  .step p{font-size:.87rem;color:var(--texto-sec)}
-
-  /* ---------- COMPROMISSOS ---------- */
-  .pledge{background:var(--azul);color:#fff;position:relative;overflow:hidden}
-  .pledge .pattern{position:absolute;right:-90px;top:-90px;width:400px;opacity:.06;pointer-events:none}
-  .pledge .wrap{position:relative;z-index:2}
-  .pledge h2{color:#fff}
-  .pledge .sub-ital{color:var(--dourado-claro)}
-  .pledge .lead{color:#c6cfdb}
-  .pledge-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:34px;margin-top:52px}
-  .pledge-item{border-top:1px solid rgba(180,146,101,.45);padding-top:22px}
-  .pledge-item h3{font-size:1.14rem;color:#fff;margin-bottom:9px}
-  .pledge-item p{font-size:.87rem;color:#bcc6d3}
-
-  /* ---------- FAQ ---------- */
-  .faq{margin-top:44px;max-width:880px}
-  details{border-bottom:1px solid var(--cinza);padding:20px 0;transition:padding-left .25s}
-  details[open]{padding-left:14px;border-left:2px solid var(--dourado);margin-left:-16px}
-  summary{
-    cursor:pointer;list-style:none;color:var(--azul);font-size:1.01rem;font-weight:500;
-    display:flex;justify-content:space-between;gap:22px;align-items:center;
-  }
-  summary::-webkit-details-marker{display:none}
-  summary:after{content:"+";color:var(--dourado);font-size:1.6rem;font-weight:200;line-height:1;flex:none}
-  details[open] summary:after{content:"–"}
-  details p{margin-top:14px;color:var(--texto-sec);font-size:.92rem;max-width:74ch}
-
-  /* ---------- CONTATO ---------- */
-  .contact{background:linear-gradient(155deg,var(--azul) 0%,var(--azul-esc) 100%);color:#fff;position:relative;overflow:hidden}
-  .contact .pattern{position:absolute;left:-80px;bottom:-80px;width:420px;opacity:.06;pointer-events:none}
-  .contact .wrap{position:relative;z-index:2}
-  .contact h2{color:#fff}
-  .contact .lead{color:#c6cfdb}
-  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:34px;margin-top:50px}
-  .ci h3{font-size:1.08rem;color:var(--dourado-claro);margin-bottom:8px}
-  .ci a,.ci p{color:#dce3ec;text-decoration:none;font-size:.92rem;font-weight:300}
-  .ci a{display:block;transition:.2s}
-  .ci a:hover{color:var(--dourado-claro)}
-  .privacy{margin-top:46px;border-left:2px solid var(--dourado);padding:4px 0 4px 22px;color:#bcc6d3;font-size:.85rem;max-width:76ch}
-  .privacy b{color:#fff;font-weight:500}
-
-  /* ---------- FOOTER ---------- */
-  footer{background:#12212f;color:#8c98a8;padding:52px 0 36px;font-size:.8rem}
-  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:44px;padding-bottom:32px}
-  .foot-grid h5{font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);margin-bottom:16px;font-weight:600;font-family:inherit}
-  .foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-  .foot-grid a{text-decoration:none;transition:.2s}
-  .foot-grid a:hover{color:var(--dourado-claro)}
-  .foot-brand p{margin-top:18px;line-height:1.7;max-width:34ch;color:#7b8797}
-  .foot-bottom{
-    display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
-    border-top:1px solid rgba(255,255,255,.09);padding-top:22px;font-size:.75rem;
-  }
-  .disclaimer{margin-top:18px;font-size:.71rem;color:#6c7887;line-height:1.65;max-width:86ch}
-
-  /* ---------- FLUTUANTES ---------- */
-  .float{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-  .float-wa{
-    background:var(--dourado);color:var(--azul);text-decoration:none;padding:14px 22px;
-    font-size:.74rem;letter-spacing:1.4px;text-transform:uppercase;font-weight:600;
-    box-shadow:0 8px 26px rgba(11,22,34,.3);transition:.25s;display:flex;align-items:center;gap:9px;
-  }
-  .float-wa svg{width:16px}
-  .float-wa:hover{background:var(--dourado-claro)}
-  .to-top{
-    width:44px;height:44px;background:rgba(31,54,78,.94);color:#fff;border:1px solid rgba(180,146,101,.5);
-    display:flex;align-items:center;justify-content:center;cursor:pointer;
-    opacity:0;visibility:hidden;transform:translateY(8px);transition:.28s;
-  }
-  .to-top.show{opacity:1;visibility:visible;transform:none}
-  .to-top:hover{background:var(--dourado);color:var(--azul);border-color:var(--dourado)}
-  .to-top svg{width:16px}
-
-  /* ---------- ANIMAÇÃO ---------- */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .reveal{opacity:1;transform:none;transition:none}
-    .area:hover{transform:none}
-    header,.nav,.lockup .icon,.lockup .name{transition:none}
-  }
-
-  /* ---------- RESPONSIVO ---------- */
-  @media(max-width:960px){
-    .foot-grid{grid-template-columns:1fr 1fr;gap:34px}
-  }
-  @media(max-width:900px){
-    .about{grid-template-columns:1fr;gap:40px}
-    .aside-sticky{position:static}
-    nav ul{display:none}
-    .menu-btn{display:block}
-    nav.open ul{
-      display:flex;flex-direction:column;align-items:stretch;position:absolute;
-      left:0;right:0;top:var(--h);background:var(--azul);padding:12px 28px 26px;gap:0;
-      border-bottom:1px solid rgba(180,146,101,.3);box-shadow:0 18px 34px rgba(11,22,34,.32);
-    }
-    nav.open ul li{border-bottom:1px solid rgba(255,255,255,.08)}
-    nav.open ul li:last-child{border:0;margin-top:16px}
-    nav.open ul a{display:block;padding:16px 0;font-size:.86rem}
-    nav.open ul a.nav-cta{text-align:center;padding:16px}
-    header.stuck nav.open ul{top:64px}
-    .sec{padding:66px 0}
-    .hero{padding:78px 0 88px}
-    .hero .pattern{right:-190px;opacity:.05}
-    .lockup .name{font-size:1.1rem;letter-spacing:3px}
-    .float{right:14px;bottom:14px}
-    .float-wa{padding:12px 18px}
-  }
-  @media(max-width:620px){
-    .foot-grid{grid-template-columns:1fr;gap:30px}
-    .strip .wrap{gap:12px 24px}
-    .strip span{font-size:.7rem}
-    .seal{padding:26px 20px}
+  @media (max-width:600px){
+    .sec{padding:80px 0}
+    .hero{min-height:auto}
+    .hero-inner{padding:72px 0 56px}
+    .faixa{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .faixa span:nth-child(3){border-left:none}
+    .faixa span:nth-child(n+3){border-top:1px solid rgba(180,146,101,.3)}
+    .area{padding:32px 24px}
+    .area ul{grid-template-columns:1fr}
+    .etapas{grid-template-columns:1fr}
+    .lockup .tag{display:none}
+    .lockup .nome{font-size:1.05rem;letter-spacing:.16em;white-space:nowrap}
+    .float-wa span{display:none}
+    .float-wa{padding:0 16px}
   }
 </style>
 </head>
@@ -357,451 +214,175 @@
 
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="balanca" viewBox="0 0 100 132">
-    <rect x="28" y="5" width="44" height="7" rx="1"/>
-    <rect x="46" y="12" width="8" height="112"/>
-    <rect x="28" y="120" width="44" height="7" rx="1"/>
-    <path d="M20 80 V52 A30 30 0 0 1 80 52 V80" fill="none" stroke="currentColor" stroke-width="6.5"/>
-    <path d="M6 80 H34 Q20 97 6 80 Z"/>
-    <path d="M66 80 H94 Q80 97 66 80 Z"/>
-  </symbol>
-  <symbol id="ornamento" viewBox="-150 -150 300 300">
-    <use href="#balanca" x="-50" y="-132" width="100" height="132"/>
-    <g transform="rotate(90)"><use href="#balanca" x="-50" y="-132" width="100" height="132"/></g>
-    <g transform="rotate(180)"><use href="#balanca" x="-50" y="-132" width="100" height="132"/></g>
-    <g transform="rotate(270)"><use href="#balanca" x="-50" y="-132" width="100" height="132"/></g>
-  </symbol>
-  <symbol id="seta" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-</svg>
-
-<header id="topbar">
-  <div class="wrap nav">
-    <a href="#topo" class="lockup" aria-label="Cibelly Lopes — Advocacia e Consultoria Jurídica">
-      <svg class="icon" viewBox="0 0 100 132" fill="#b49265" color="#b49265" aria-hidden="true"><use href="#balanca"/></svg>
-      <span class="words">
-        <span class="name">Cibelly Lopes</span>
-        <span class="tag">Advocacia e Consultoria Jurídica</span>
-      </span>
-    </a>
-    <nav id="nav" aria-label="Navegação principal">
-      <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#areas">Áreas</a></li>
-        <li><a href="#atendimento">Atendimento</a></li>
-        <li><a href="#compromissos">Compromissos</a></li>
-        <li><a href="#faq">Dúvidas</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a class="nav-cta" href="https://wa.me/5511968421883" target="_blank" rel="noopener">Falar agora</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="progress" id="progress"></div>
+<header>
+    <div class="wrap nav">
+      <a href="#topo" class="lockup" aria-label="Cibelly Lopes — Advocacia e Consultoria Jurídica">
+        <svg viewBox="0 0 100 132" aria-hidden="true"><g fill="#b49265"><rect x="28" y="5" width="44" height="7"/><rect x="46" y="12" width="8" height="112"/><rect x="28" y="120" width="44" height="7"/><path d="M20 80 V52 A30 30 0 0 1 80 52 V80" fill="none" stroke="#b49265" stroke-width="6.5"/><path d="M6 80 H34 Q20 97 6 80 Z"/><path d="M66 80 H94 Q80 97 66 80 Z"/></g></svg>
+        <span>
+          <span class="nome">CIBELLY LOPES</span>
+          <span class="tag">Advocacia e Consultoria Jurídica</span>
+        </span>
+      </a>
+      <nav id="nav" aria-label="Navegação principal">
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+        <ul id="menu">
+          <li><a href="#areas">Áreas</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#atendimento">Atendimento</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a class="nav-cta" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
 </header>
+
+<div class="topo" id="topo">
+  <div class="monograma" aria-hidden="true">CL</div>
+
+
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Advocacia e Consultoria Jurídica</span>
+      <h1>Direito do Trabalho, Cível, Família e Previdenciário.</h1>
+      <p>Atendimento em Iguape/SP, São Paulo/SP e online, com hora marcada.</p>
+      <div class="acoes">
+        <a class="btn btn-ouro" href="https://wa.me/5511968421883" target="_blank" rel="noopener">Agendar consulta</a>
+        <a class="btn btn-contorno" href="#areas">Áreas de atuação</a>
+      </div>
+    </div>
+    <div class="faixa">
+      <span>OAB/SP 471.453</span>
+      <span>Iguape/SP · São Paulo/SP</span>
+      <span>Presencial e por videochamada</span>
+      <span>Seg. a sex., das 13h às 17h</span>
+    </div>
+  </div>
+</div>
 
 <main id="conteudo">
 
-<div class="hero" id="topo">
-  <svg class="pattern" viewBox="-150 -150 300 300" fill="#b49265" color="#b49265" aria-hidden="true"><use href="#ornamento"/></svg>
+<section class="sec" id="areas">
   <div class="wrap">
-    <div class="hero-inner">
-      <h1>Você vai entender o seu processo antes de assinar qualquer coisa.</h1>
-      <p class="sub">Advocacia e consultoria em Iguape/SP, São Paulo capital e atendimento online.</p>
-      <div class="rule"></div>
-      <p>Atuação em Direito do Trabalho, Cível e Contratos, Família e Sucessões e Previdenciário.
-         Cada caso passa por análise técnica da documentação e por uma conversa honesta sobre
-         riscos, prazos e alternativas — inclusive quando a melhor saída não é o processo.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://wa.me/5511968421883" target="_blank" rel="noopener">Agendar consulta</a>
-        <a class="btn btn-ghost" href="#areas">Áreas de atuação</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="strip">
-  <div class="wrap">
-    <span>Advogada desde 2022</span>
-    <span>Atendimento presencial e online</span>
-    <span>Contrato e honorários por escrito</span>
-    <span>Iguape/SP · São Paulo/SP</span>
-  </div>
-</div>
-
-<section class="sec" id="sobre">
-  <div class="wrap reveal">
-    <p class="section-label">Sobre</p>
-    <h2>Quem atende você</h2>
-    <p class="sub-ital">Uma advocacia construída na base: do balcão do fórum à sala de atendimento.</p>
-
-    <div class="about">
-      <div>
-        <p>Sou advogada, com atuação consultiva e contenciosa nas áreas trabalhista, cível, de
-        família e previdenciária.</p>
-
-        <p>Minha formação começou antes da toga. Atuei no setor de Tributos da Prefeitura Municipal
-        de Iguape, com análise de cálculos fiscais, dívida ativa e execuções fiscais, e depois no
-        <strong>Tribunal de Justiça do Estado de São Paulo</strong>, acompanhando inquéritos,
-        processos e execuções criminais. Essa passagem pelo lado de dentro do Judiciário ensinou
-        algo que nenhum manual ensina: como um processo realmente anda, onde ele trava e o que
-        faz diferença nos prazos.</p>
-
-        <p class="pull">“O cliente precisa entender o próprio caso. Se ele sai da consulta sem
-        saber o que vai acontecer, eu não fiz o meu trabalho.”</p>
-
-        <p>Desde 2022 advogo de forma autônoma, atendendo clientes particulares e também pelo
-        convênio da Defensoria Pública, na região de Iguape/SP e na capital. Cada atendimento
-        começa pela análise técnica da documentação e termina com uma explicação objetiva do
-        cenário — o que é possível pedir, quais são os riscos, quanto tempo costuma levar e quais
-        caminhos existem além do processo judicial.</p>
-
-        <p>A comunicação é direta e o acompanhamento é contínuo: você é informado sobre as
-        movimentações relevantes do processo, em linguagem que dá para entender. E, sempre que o
-        tema permite, também escrevo sobre esses assuntos — meus artigos estão publicados no
-        JusBrasil.</p>
-
-        <div class="signature">
-          <div class="nome">Cibelly Lopes</div>
-          <div class="oab">Advogada</div>
-        </div>
-      </div>
-
-      <aside>
-        <div class="aside-sticky">
-          <div class="seal">
-            <svg viewBox="0 0 100 132" fill="#b49265" color="#b49265" aria-hidden="true"><use href="#balanca"/></svg>
-            <div class="num">471.453</div>
-            <div class="lbl">Inscrição OAB/SP</div>
-            <p class="desc">Inscrição regular na Seccional de São Paulo, sujeita ao Estatuto da
-            Advocacia e ao Código de Ética.</p>
-          </div>
-
-          <div class="card-cred">
-            <h3>Formação e qualificações</h3>
-            <span class="ital">Trajetória acadêmica e profissional</span>
-            <ul>
-              <li><b>Bacharel em Direito</b><em>UNIVR — Centro Universitário do Vale do Ribeira · 2021</em></li>
-              <li><b>Prática Trabalhista</b><em>CEISC — Curso de Especializações Jurídicas · 2022</em></li>
-              <li><b>Cálculo Trabalhista</b><em>Formação complementar · 2022</em></li>
-              <li><b>Estágio — Tribunal de Justiça de São Paulo</b><em>Área criminal: inquéritos, processos e execuções</em></li>
-              <li><b>Estágio — Prefeitura Municipal de Iguape</b><em>Setor de Tributos: dívida ativa e execuções fiscais</em></li>
-              <li><b>Produção de conteúdo jurídico</b><em>Artigos publicados na plataforma JusBrasil</em></li>
-            </ul>
-
-            <a class="verify" href="https://cna.oab.org.br/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                <path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6l-8-4Z"/>
-                <path d="m9 12 2 2 4-4"/>
-              </svg>
-              <span>Confira minha inscrição no <b>Cadastro Nacional dos Advogados</b></span>
-            </a>
-          </div>
-
-          <div class="quick">
-            <h4>Agendar uma consulta</h4>
-            <p>Atendimento presencial de segunda a sexta, das 13h às 17h, exclusivamente com hora
-            marcada. Videochamada mediante agendamento.</p>
-            <a class="btn btn-primary" href="https://wa.me/5511968421883" target="_blank" rel="noopener">WhatsApp (11) 96842-1883</a>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="sec alt" id="areas">
-  <div class="wrap reveal">
-    <p class="section-label">Áreas de atuação</p>
-    <h2>Em que posso ajudar</h2>
-    <p class="sub-ital">Quatro frentes, acompanhamento próximo em cada uma.</p>
-    <p class="lead">A concentração em poucas áreas é uma escolha: permite profundidade técnica e
-    atendimento pessoal, sem terceirizar o seu caso.</p>
-
-    <div class="grid-areas">
+    <h2 class="centro">Áreas de atuação</h2>
+    <div class="areas-grid">
       <article class="area">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
-          <rect x="2.5" y="7" width="19" height="13.5" rx="1.5"/>
-          <path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7"/>
-          <path d="M2.5 12.5h19M10 12.5v2h4v-2"/>
-        </svg>
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="#d3b98f" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></div>
         <h3>Direito do Trabalho</h3>
-        <p>Orientação e defesa de direitos na relação de emprego, para empregados e empregadores.</p>
+        <p>Relações de emprego, para empregados e empregadores.</p>
         <ul>
-          <li>Verbas rescisórias e acerto irregular</li>
-          <li>Reconhecimento de vínculo empregatício</li>
-          <li>Horas extras, jornada e adicionais</li>
+          <li>Verbas rescisórias</li>
+          <li>Reconhecimento de vínculo</li>
+          <li>Horas extras e adicionais</li>
           <li>Assédio moral e rescisão indireta</li>
-          <li>Acidente de trabalho e doença ocupacional</li>
+          <li>Acidente e doença ocupacional</li>
           <li>Cálculo e conferência de valores</li>
         </ul>
-        <a class="area-link" target="_blank" rel="noopener"
-           href="https://wa.me/5511968421883?text=Ol%C3%A1%2C%20Dra.%20Cibelly.%20Gostaria%20de%20falar%20sobre%20uma%20quest%C3%A3o%20trabalhista.">
-          Falar sobre este assunto <svg aria-hidden="true"><use href="#seta"/></svg>
-        </a>
       </article>
-
       <article class="area">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 2.5h9l5 5v14H5z"/>
-          <path d="M14 2.5v5h5"/>
-          <path d="M8.5 12.5h7M8.5 16h5"/>
-        </svg>
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="#d3b98f" stroke-width="1.6" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg></div>
         <h3>Cível e Contratos</h3>
-        <p>Prevenção e solução de conflitos patrimoniais, contratuais e de consumo.</p>
+        <p>Contratos, indenizações, cobranças e relações de consumo.</p>
         <ul>
           <li>Elaboração e revisão de contratos</li>
           <li>Responsabilidade civil e indenizações</li>
           <li>Cobranças e execuções</li>
           <li>Relações de consumo</li>
-          <li>Questões locatícias e imobiliárias</li>
+          <li>Locação e questões imobiliárias</li>
           <li>Compra e venda de imóveis</li>
         </ul>
-        <a class="area-link" target="_blank" rel="noopener"
-           href="https://wa.me/5511968421883?text=Ol%C3%A1%2C%20Dra.%20Cibelly.%20Gostaria%20de%20falar%20sobre%20uma%20quest%C3%A3o%20c%C3%ADvel%20ou%20contratual.">
-          Falar sobre este assunto <svg aria-hidden="true"><use href="#seta"/></svg>
-        </a>
       </article>
-
       <article class="area">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="8" cy="7" r="3"/>
-          <path d="M2 20v-.8C2 16.9 4.7 15 8 15s6 1.9 6 4.2v.8"/>
-          <circle cx="17.5" cy="8.5" r="2.4"/>
-          <path d="M15.6 16.2c.6-.2 1.2-.3 1.9-.3 2.7 0 4.5 1.5 4.5 3.4v.7"/>
-        </svg>
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="#d3b98f" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.3-4.5 3-4.5s4 2 4 4.5"/></svg></div>
         <h3>Família e Sucessões</h3>
-        <p>Condução técnica e discreta de questões sensíveis, com preferência por soluções consensuais.</p>
+        <p>Divórcio, guarda, alimentos, partilha e inventário.</p>
         <ul>
           <li>Divórcio e dissolução de união estável</li>
           <li>Guarda, convivência e alimentos</li>
           <li>Execução e revisão de alimentos</li>
           <li>Partilha de bens</li>
-          <li>Inventário e partilha de herança</li>
+          <li>Inventário</li>
           <li>Reconhecimento de paternidade</li>
         </ul>
-        <a class="area-link" target="_blank" rel="noopener"
-           href="https://wa.me/5511968421883?text=Ol%C3%A1%2C%20Dra.%20Cibelly.%20Gostaria%20de%20falar%20sobre%20uma%20quest%C3%A3o%20de%20fam%C3%ADlia%20ou%20sucess%C3%B5es.">
-          Falar sobre este assunto <svg aria-hidden="true"><use href="#seta"/></svg>
-        </a>
       </article>
-
       <article class="area">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M6.5 2.5h11M6.5 21.5h11"/>
-          <path d="M17 2.5v3.2c0 2.1-3 3.2-3 6.3s3 4.2 3 6.3v3.2"/>
-          <path d="M7 2.5v3.2c0 2.1 3 3.2 3 6.3s-3 4.2-3 6.3v3.2"/>
-        </svg>
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="#d3b98f" stroke-width="1.6" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Previdenciário</h3>
-        <p>Análise do histórico contributivo e acompanhamento de pedidos junto ao INSS.</p>
+        <p>Benefícios, revisões e recursos junto ao INSS.</p>
         <ul>
-          <li>Aposentadorias e simulação de regras</li>
+          <li>Aposentadorias</li>
           <li>Auxílio por incapacidade temporária</li>
           <li>Aposentadoria por incapacidade permanente</li>
           <li>Salário-maternidade</li>
           <li>Pensão por morte e BPC/LOAS</li>
           <li>Revisões e recursos administrativos</li>
         </ul>
-        <a class="area-link" target="_blank" rel="noopener"
-           href="https://wa.me/5511968421883?text=Ol%C3%A1%2C%20Dra.%20Cibelly.%20Gostaria%20de%20falar%20sobre%20uma%20quest%C3%A3o%20previdenci%C3%A1ria%20(INSS).">
-          Falar sobre este assunto <svg aria-hidden="true"><use href="#seta"/></svg>
-        </a>
       </article>
     </div>
   </div>
 </section>
 
-<section class="sec" id="atendimento">
-  <div class="wrap reveal">
-    <p class="section-label">Como funciona</p>
-    <h2>O atendimento, passo a passo</h2>
-    <p class="sub-ital">Você sabe exatamente o que esperar em cada etapa.</p>
-
-    <div class="steps">
-      <div class="step">
-        <h3>Contato inicial</h3>
-        <p>Você descreve a situação por WhatsApp, e-mail ou telefone. Verificamos se a demanda se
-        enquadra nas áreas de atuação e agendamos a consulta — presencial das 13h às 17h, com hora
-        marcada, ou por videochamada.</p>
-      </div>
-      <div class="step">
-        <h3>Análise da documentação</h3>
-        <p>Reunimos contratos, carteira de trabalho, holerites, extratos, laudos ou documentos do
-        INSS. A análise técnica vem antes de qualquer orientação definitiva — nunca o contrário.</p>
-      </div>
-      <div class="step">
-        <h3>Orientação e proposta</h3>
-        <p>Apresentação honesta do cenário: caminhos possíveis, riscos, prazos estimados e custos.
-        A proposta de honorários é formalizada em contrato escrito, sem surpresas.</p>
-      </div>
-      <div class="step">
-        <h3>Condução e acompanhamento</h3>
-        <p>Ajuizamento ou negociação, com atualização sobre as movimentações relevantes do caso
-        até a sua conclusão.</p>
-      </div>
-    </div>
+<section class="sobre" id="sobre">
+  <div class="foto">
+    <svg viewBox="0 0 100 132" aria-hidden="true"><g fill="#b49265"><rect x="28" y="5" width="44" height="7"/><rect x="46" y="12" width="8" height="112"/><rect x="28" y="120" width="44" height="7"/><path d="M20 80 V52 A30 30 0 0 1 80 52 V80" fill="none" stroke="#b49265" stroke-width="6.5"/><path d="M6 80 H34 Q20 97 6 80 Z"/><path d="M66 80 H94 Q80 97 66 80 Z"/></g></svg>
+    <!-- Foto: adicione o arquivo foto-cibelly.jpg na raiz do site. Enquanto ele não existir, aparece o símbolo da marca. -->
+    <img src="foto-cibelly.jpg" alt="Cibelly Maria Lopes da Silva, advogada" loading="lazy" onerror="this.remove()">
+  </div>
+  <div class="texto">
+    <span class="eyebrow">Sobre</span>
+    <h2>Cibelly Maria Lopes da Silva</h2>
+    <p>Advogada inscrita na OAB/SP sob o nº 471.453, com atuação consultiva e contenciosa nas áreas trabalhista, cível, de família e previdenciária. Atende clientes particulares e pelo convênio da Defensoria Pública, em Iguape/SP, na capital e a distância.</p>
+    <p>Antes da advocacia, atuou no setor de Tributos da Prefeitura Municipal de Iguape e no Tribunal de Justiça do Estado de São Paulo, na área criminal. Publica artigos na plataforma JusBrasil.</p>
+    <ol class="linha-tempo">
+      <li><span class="ano">2021</span><span class="item">Bacharel em Direito — UNIVR</span></li>
+      <li><span class="ano">2022</span><span class="item">Prática Trabalhista (CEISC) e Cálculo Trabalhista</span></li>
+      <li><span class="ano">Desde 2022</span><span class="item">Advocacia autônoma</span></li>
+    </ol>
+    <a class="link" href="https://cna.oab.org.br/" target="_blank" rel="noopener">Consultar inscrição no Cadastro Nacional dos Advogados →</a>
   </div>
 </section>
 
-<section class="sec pledge" id="compromissos">
-  <svg class="pattern" viewBox="-150 -150 300 300" fill="#b49265" color="#b49265" aria-hidden="true"><use href="#ornamento"/></svg>
-  <div class="wrap reveal">
-    <p class="section-label" style="color:var(--dourado-claro)">Compromissos</p>
-    <h2>O que você pode esperar de mim</h2>
-    <p class="sub-ital">E o que eu nunca vou prometer.</p>
-    <p class="lead">Confiança em advocacia não se constrói com promessa de vitória — se constrói
-    com previsibilidade. Estes são os compromissos que assumo com todo cliente, do primeiro
-    contato ao arquivamento do processo.</p>
-
-    <div class="pledge-grid">
-      <div class="pledge-item">
-        <h3>Diagnóstico honesto, mesmo quando não me interessa</h3>
-        <p>Se o seu caso tem baixa chance de êxito, se o custo não compensa ou se a solução é
-        extrajudicial, você ouve isso na consulta. Não ajuízo ação que eu não recomendaria para
-        mim mesma.</p>
-      </div>
-      <div class="pledge-item">
-        <h3>Nenhuma promessa de resultado</h3>
-        <p>Prazo e resultado dependem do juízo, da parte contrária e da prova. Você recebe cenários
-        realistas — o provável, o possível e o risco — e nunca garantias que a ética profissional
-        proíbe qualquer advogado de dar.</p>
-      </div>
-      <div class="pledge-item">
-        <h3>Honorários por escrito, antes de começar</h3>
-        <p>Valores, forma de pagamento e o que está incluído são definidos em contrato, com base na
-        Tabela da OAB/SP. Sem cobrança surpresa no meio do processo.</p>
-      </div>
-      <div class="pledge-item">
-        <h3>Português, não juridiquês</h3>
-        <p>As movimentações relevantes do seu processo são explicadas em linguagem comum. E, se
-        surgir dúvida no meio do caminho, você pode perguntar — sem constrangimento e sem precisar
-        de hora marcada para isso.</p>
-      </div>
-      <div class="pledge-item">
-        <h3>Quem atende é quem conduz</h3>
-        <p>Seu caso não é repassado a terceiros. A advogada que ouve sua história na consulta é a
-        mesma que redige a peça, comparece à audiência e assina o processo.</p>
-      </div>
-      <div class="pledge-item">
-        <h3>Prazo perdido não se recupera</h3>
-        <p>Controle de prazos é rotina, não improviso — hábito trazido do tempo de Judiciário e de
-        execuções fiscais. Nenhum prazo do seu processo depende da memória de ninguém.</p>
-      </div>
-    </div>
+<section class="sec atendimento" id="atendimento">
+  <div class="wrap">
+    <h2 class="centro">Como funciona o atendimento</h2>
+    <ol class="etapas">
+      <li><span class="num">01</span><h3>Agendamento</h3><p>Contato por WhatsApp, e-mail ou telefone para marcar a consulta, presencial ou por videochamada.</p></li>
+      <li><span class="num">02</span><h3>Consulta</h3><p>Análise dos documentos do caso e orientação sobre os caminhos possíveis, prazos e custos.</p></li>
+      <li><span class="num">03</span><h3>Contrato</h3><p>Honorários definidos em contrato escrito, conforme a Tabela da OAB/SP.</p></li>
+      <li><span class="num">04</span><h3>Acompanhamento</h3><p>Informação sobre as movimentações do processo até a conclusão.</p></li>
+    </ol>
   </div>
 </section>
 
-<section class="sec alt" id="faq">
-  <div class="wrap reveal">
-    <p class="section-label">Dúvidas frequentes</p>
-    <h2>Perguntas comuns</h2>
-    <p class="sub-ital">As que mais aparecem no primeiro contato.</p>
-
+<section class="sec" id="duvidas">
+  <div class="wrap duvidas">
+    <h2>Dúvidas frequentes</h2>
     <div class="faq">
-      <details open>
-        <summary>A primeira consulta é cobrada?</summary>
-        <p>A consulta é um serviço jurídico e possui honorários próprios, conforme a Tabela de
-        Honorários da OAB/SP. O valor e a forma de pagamento são informados no agendamento, antes
-        de você se comprometer com qualquer coisa.</p>
-      </details>
-      <details>
-        <summary>Quais documentos devo levar?</summary>
-        <p>Documento de identidade, CPF e comprovante de residência, além de tudo que se relacione
-        ao caso: contratos, carteira de trabalho, holerites, conversas, notificações, boletim de
-        ocorrência, laudos médicos ou documentos do INSS. Na dúvida, leve o que tiver — a triagem
-        é feita na consulta.</p>
-      </details>
-      <details>
-        <summary>Quanto tempo demora um processo?</summary>
-        <p>O prazo varia conforme a complexidade do caso, a comarca e o comportamento da parte
-        contrária. Nenhum profissional pode garantir prazo ou resultado, mas na consulta você
-        recebe uma estimativa realista baseada na média de casos semelhantes.</p>
-      </details>
-      <details>
-        <summary>Como são cobrados os honorários?</summary>
-        <p>Os honorários são fixados em contrato escrito antes do início do trabalho, observando a
-        Tabela da OAB/SP. Podem ser fixos, parcelados ou vinculados ao êxito, conforme o tipo de
-        demanda. Tudo é apresentado por escrito e explicado antes da assinatura.</p>
-      </details>
-      <details>
-        <summary>Preciso mesmo de advogado ou resolvo sozinho?</summary>
-        <p>Depende do caso. Em Juizados Especiais de menor valor e em alguns pedidos administrativos
-        no INSS é possível agir sem advogado. Mas erro de pedido, prova mal produzida ou prazo
-        perdido costumam custar mais caro do que a orientação. Na consulta eu digo com franqueza
-        se vale a pena me contratar.</p>
-      </details>
-      <details>
-        <summary>Você atende clientes de outras cidades?</summary>
-        <p>Sim. Além de Iguape/SP e região do Vale do Ribeira, atendo na capital paulista e a
-        distância, por videochamada e com envio digital de documentos. O processo eletrônico
-        permite acompanhar a maior parte dos casos remotamente.</p>
-      </details>
-      <details>
-        <summary>Já tenho um processo com outro advogado. Posso pedir uma segunda opinião?</summary>
-        <p>Pode. A análise de um caso já em andamento é um serviço comum e legítimo, feito com
-        respeito ao colega que atua na causa. A troca de patrono, se você decidir por ela, segue
-        os procedimentos previstos no Código de Ética da OAB.</p>
-      </details>
-      <details>
-        <summary>Minhas informações ficam protegidas?</summary>
-        <p>Sim. Tudo o que é dito no atendimento está protegido pelo sigilo profissional, dever
-        legal e ético do advogado, previsto no Estatuto da Advocacia e no Código de Ética e
-        Disciplina da OAB — inclusive se você não me contratar depois.</p>
-      </details>
+      <details open><summary>A primeira consulta é cobrada?</summary><p>Sim. A consulta tem honorários próprios, conforme a Tabela da OAB/SP. O valor é informado no agendamento.</p></details>
+      <details><summary>Quais documentos devo levar?</summary><p>Documento de identidade, CPF, comprovante de residência e os documentos relacionados ao caso, como contratos, carteira de trabalho, holerites, extratos, laudos ou documentos do INSS.</p></details>
+      <details><summary>Quanto tempo demora um processo?</summary><p>Depende da complexidade do caso, da comarca e da parte contrária. Não é possível garantir prazo; na consulta é apresentada uma estimativa.</p></details>
+      <details><summary>Como são cobrados os honorários?</summary><p>Em contrato escrito, antes do início do trabalho, conforme a Tabela da OAB/SP. Podem ser fixos, parcelados ou vinculados ao êxito.</p></details>
+      <details><summary>Atende clientes de outras cidades?</summary><p>Sim. Além de Iguape/SP e do Vale do Ribeira, o atendimento é feito na capital e a distância, por videochamada.</p></details>
     </div>
   </div>
 </section>
 
-<section class="sec contact" id="contato">
-  <svg class="pattern" viewBox="-150 -150 300 300" fill="#b49265" color="#b49265" aria-hidden="true"><use href="#ornamento"/></svg>
-  <div class="wrap reveal">
-    <p class="section-label" style="color:var(--dourado-claro)">Contato</p>
-    <h2>Vamos conversar sobre o seu caso</h2>
-    <p class="lead">O primeiro passo é entender a situação. Entre em contato pelo canal de sua
-    preferência para verificar disponibilidade e agendar o atendimento.</p>
-
-    <div class="contact-grid">
-      <div class="ci">
-        <h3>WhatsApp e telefone</h3>
-        <a href="https://wa.me/5511968421883" target="_blank" rel="noopener">(11) 96842-1883</a>
+<section class="contato" id="contato">
+  <div class="wrap">
+    <div class="contato-box">
+      <div>
+        <h2>Contato</h2>
+        <div class="dados">
+          <span>Atendimento presencial de segunda a sexta, das 13h às 17h, com hora marcada. Também por videochamada.</span>
+          <span>Rua Latif Corrêa, nº 29, Centro — Iguape/SP</span>
+          <a href="mailto:cibellymlopes@hotmail.com">cibellymlopes@hotmail.com</a>
+        </div>
       </div>
-      <div class="ci">
-        <h3>E-mail</h3>
-        <a href="mailto:cibellymlopes@hotmail.com">cibellymlopes@hotmail.com</a>
-      </div>
-      <div class="ci">
-        <h3>Escritório</h3>
-        <p>Rua Latif Corrêa, nº 29<br>Centro — Iguape/SP</p>
-      </div>
-      <div class="ci">
-        <h3>Atendimento</h3>
-        <p>Presencial: seg. a sex., das 13h às 17h,<br>exclusivamente com hora marcada.<br>Videochamada mediante agendamento.</p>
-      </div>
-      <div class="ci">
-        <h3>Instagram</h3>
-        <a href="https://instagram.com/cibellylopes_adv" target="_blank" rel="noopener">@cibellylopes_adv</a>
-      </div>
-      <div class="ci">
-        <h3>LinkedIn</h3>
-        <a href="https://www.linkedin.com/in/cibelly-lopes-273256235/" target="_blank" rel="noopener">Cibelly Lopes</a>
-      </div>
-      <div class="ci">
-        <h3>Artigos</h3>
-        <a href="https://cibellymlopes.jusbrasil.com.br" target="_blank" rel="noopener">Publicações no JusBrasil</a>
+      <div class="acoes">
+        <a class="btn btn-azul" href="https://wa.me/5511968421883" target="_blank" rel="noopener">WhatsApp (11) 96842-1883</a>
+        <a class="btn btn-linha" href="mailto:cibellymlopes@hotmail.com">Enviar e-mail</a>
       </div>
     </div>
-
-    <p class="privacy">
-      <b>Sigilo e proteção de dados.</b> As informações compartilhadas no primeiro contato já estão
-      protegidas pelo sigilo profissional, independentemente da contratação. Os dados são usados
-      apenas para a análise e o acompanhamento do seu caso, conforme a Lei nº 13.709/2018 (LGPD),
-      e não são compartilhados com terceiros sem sua autorização.
-    </p>
-
-    <div class="cta">
-      <a class="btn btn-primary" href="https://wa.me/5511968421883" target="_blank" rel="noopener">Enviar mensagem no WhatsApp</a>
-      <a class="btn btn-ghost" href="mailto:cibellymlopes@hotmail.com">Escrever um e-mail</a>
-    </div>
+    <p class="privacidade">As informações compartilhadas no primeiro contato estão protegidas pelo sigilo profissional e são usadas apenas para a análise do caso, conforme a Lei nº 13.709/2018 (LGPD).</p>
   </div>
 </section>
 
@@ -809,135 +390,36 @@
 
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a href="#topo" class="lockup" aria-label="Voltar ao topo">
-          <svg class="icon" viewBox="0 0 100 132" fill="#b49265" color="#b49265" aria-hidden="true"><use href="#balanca"/></svg>
-          <span class="words">
-            <span class="name">Cibelly Lopes</span>
-            <span class="tag">Advocacia e Consultoria Jurídica</span>
-          </span>
-        </a>
-        <p>Advocacia consultiva e contenciosa em Iguape/SP, São Paulo capital e atendimento
-        online em todo o país.</p>
-      </div>
-
-      <div>
-        <h5>Navegação</h5>
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#areas">Áreas de atuação</a></li>
-          <li><a href="#atendimento">Como funciona</a></li>
-          <li><a href="#compromissos">Compromissos</a></li>
-          <li><a href="#faq">Dúvidas frequentes</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h5>Contato</h5>
-        <ul>
-          <li><a href="https://wa.me/5511968421883" target="_blank" rel="noopener">(11) 96842-1883 — WhatsApp</a></li>
-          <li><a href="mailto:cibellymlopes@hotmail.com">cibellymlopes@hotmail.com</a></li>
-          <li>Rua Latif Corrêa, 29 — Centro, Iguape/SP</li>
-          <li>Seg. a sex., 13h às 17h, com hora marcada</li>
-          <li><a href="https://instagram.com/cibellylopes_adv" target="_blank" rel="noopener">@cibellylopes_adv</a></li>
-        </ul>
-      </div>
+    <div class="rodape">
+      <span class="marca">CIBELLY LOPES</span>
+      <ul>
+        <li><a href="https://instagram.com/cibellylopes_adv" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/cibelly-lopes-273256235/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://cibellymlopes.jusbrasil.com.br" target="_blank" rel="noopener">JusBrasil</a></li>
+      </ul>
+      <span>© <span id="ano">2026</span> Cibelly Maria Lopes da Silva · OAB/SP nº 471.453</span>
     </div>
-
-    <div class="foot-bottom">
-      <span>© <span id="ano"></span> Cibelly Maria Lopes da Silva · OAB/SP nº 471.453</span>
-    </div>
-
-    <p class="disclaimer">
-      Este site tem caráter meramente informativo, em conformidade com o Código de Ética e
-      Disciplina da OAB e com o Provimento nº 205/2021 do Conselho Federal da OAB. Não constitui
-      oferta de serviços, captação de clientela, mercantilização da advocacia ou promessa de
-      resultado. As informações aqui apresentadas são de ordem geral e não substituem a orientação
-      jurídica individualizada para o caso concreto.
-    </p>
+    <p class="disclaimer">Este site tem caráter meramente informativo, em conformidade com o Código de Ética e Disciplina da OAB e com o Provimento nº 205/2021 do Conselho Federal da OAB. As informações aqui apresentadas são de ordem geral e não substituem a orientação jurídica individualizada para o caso concreto.</p>
   </div>
 </footer>
 
-<div class="float">
-  <button class="to-top" id="toTop" aria-label="Voltar ao topo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M12 19V5m-7 7 7-7 7 7"/>
-    </svg>
-  </button>
-  <a class="float-wa" href="https://wa.me/5511968421883" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.1c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l.9 2.1c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.3.1.4.2.5.3.1.2.1.7-.1 1.4Z"/>
-    </svg>
-    WhatsApp
-  </a>
-</div>
+<a class="float-wa" href="https://wa.me/5511968421883" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.6 14.1c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l.9 2.1c.1.2.1.4 0 .6l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.3.1.4.2.5.3.1.2.1.7-.1 1.4Z"/></svg>
+  <span>WhatsApp</span>
+</a>
 
 <script>
   document.getElementById('ano').textContent = new Date().getFullYear();
-
-  var header  = document.getElementById('topbar');
-  var nav     = document.getElementById('nav');
-  var btn     = nav.querySelector('.menu-btn');
-  var bar     = document.getElementById('progress');
-  var toTop   = document.getElementById('toTop');
-  var links   = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
-  var alvos   = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
-
+  var nav = document.getElementById('nav');
+  var btn = nav.querySelector('.menu-btn');
+  function fechar(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
   btn.addEventListener('click', function(){
-    var open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-expanded', nav.classList.toggle('open'));
   });
-  nav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-    });
-  });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', fechar); });
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && nav.classList.contains('open')) {
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
-      btn.focus();
-    }
+    if (e.key === 'Escape' && nav.classList.contains('open')) { fechar(); btn.focus(); }
   });
-
-  var ticking = false;
-  function onScroll(){
-    var y = window.scrollY || document.documentElement.scrollTop;
-    var alt = document.documentElement.scrollHeight - window.innerHeight;
-
-    header.classList.toggle('stuck', y > 40);
-    bar.style.width = (alt > 0 ? Math.min(y / alt, 1) * 100 : 0) + '%';
-    toTop.classList.toggle('show', y > 600);
-
-    var atual = -1;
-    alvos.forEach(function(sec, i){
-      if (sec && sec.getBoundingClientRect().top <= 140) atual = i;
-    });
-    links.forEach(function(a, i){ a.classList.toggle('active', i === atual); });
-    ticking = false;
-  }
-  window.addEventListener('scroll', function(){
-    if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
-  }, {passive:true});
-  onScroll();
-
-  toTop.addEventListener('click', function(){
-    window.scrollTo({top:0, behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth'});
-  });
-
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold:.1});
-    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
-  }
 </script>
 </body>
 </html>

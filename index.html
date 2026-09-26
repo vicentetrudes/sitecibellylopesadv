@@ -155,7 +155,19 @@
   .faq details[open] summary::after{content:'−'}
   .faq p{margin-top:14px;font-size:1rem}
 
-  .contato{padding:0 0 112px}
+  .insta{background:#fff}
+  .insta-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 64px}
+  .insta-topo p{max-width:520px;font-size:1.05rem;margin-top:12px}
+  .insta-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+  .insta-card{border:1px solid var(--cinza);border-top:3px solid var(--dourado);padding:36px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:border-color .2s,box-shadow .2s}
+  .insta-card:hover{border-color:var(--dourado);box-shadow:0 12px 32px rgba(31,54,78,.08)}
+  .insta-card h3{font-size:1.6rem;color:var(--azul)}
+  .insta-card p{font-size:1rem}
+  .insta-card .ver{margin-top:auto;padding-top:8px;font-size:.92rem;font-weight:500;color:var(--dourado-texto)}
+  .btn-insta{gap:10px}
+  .btn-insta svg{width:20px;height:20px}
+
+  .contato{padding:112px 0}
   .contato-box{background:#fff;border:1px solid var(--dourado);padding:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
   .contato-box h2{font-size:clamp(2rem,3.4vw,2.8rem);color:var(--azul)}
   .contato-box .dados{margin-top:18px;display:flex;flex-direction:column;gap:6px;font-size:1rem}
@@ -180,6 +192,7 @@
   @media (max-width:1024px){
     #nav ul{gap:22px}
     .etapas{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .insta-grid{grid-template-columns:1fr}
     .duvidas{grid-template-columns:1fr;gap:40px}
   }
   @media (max-width:860px){
@@ -230,6 +243,7 @@
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#atendimento">Atendimento</a></li>
           <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#instagram">Instagram</a></li>
           <li><a class="nav-cta" href="#contato">Contato</a></li>
         </ul>
       </nav>
@@ -362,6 +376,36 @@
       <details><summary>Quanto tempo demora um processo?</summary><p>Depende da complexidade do caso, da comarca e da parte contrária. Não é possível garantir prazo; na consulta é apresentada uma estimativa.</p></details>
       <details><summary>Como são cobrados os honorários?</summary><p>Em contrato escrito, antes do início do trabalho, conforme a Tabela da OAB/SP. Podem ser fixos, parcelados ou vinculados ao êxito.</p></details>
       <details><summary>Atende clientes de outras cidades?</summary><p>Sim. Além de Iguape/SP e do Vale do Ribeira, o atendimento é feito na capital e a distância, por videochamada.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec insta" id="instagram">
+  <div class="wrap">
+    <div class="insta-topo">
+      <div>
+        <span class="eyebrow">Instagram @cibellylopes_adv</span>
+        <h2>Conteúdo no Instagram</h2>
+        <p>Publicações informativas sobre direitos e dúvidas comuns. Não substituem a consulta individual.</p>
+      </div>
+      <a class="btn btn-azul btn-insta" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Ver perfil no Instagram</a>
+    </div>
+    <div class="insta-grid">
+      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener">
+        <h3>Família</h3>
+        <p>Guarda, pensão alimentícia, divórcio, partilha e acordos.</p>
+        <span class="ver">Ver publicações →</span>
+      </a>
+      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener">
+        <h3>Previdenciário e INSS</h3>
+        <p>Benefícios, documentos, revisões e etapas do pedido.</p>
+        <span class="ver">Ver publicações →</span>
+      </a>
+      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener">
+        <h3>Cível e Trabalhista</h3>
+        <p>Contratos, cobranças, relações de consumo e verbas trabalhistas.</p>
+        <span class="ver">Ver publicações →</span>
+      </a>
     </div>
   </div>
 </section>

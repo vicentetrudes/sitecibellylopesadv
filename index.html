@@ -69,6 +69,7 @@
   h1,h2,h3{font-family:'Arsenal',Georgia,serif;font-weight:400;line-height:1.15}
   a{color:inherit}
   img{max-width:100%;display:block}
+  [hidden]{display:none!important}
   ul,ol{list-style:none}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
   section{scroll-margin-top:88px}
@@ -167,6 +168,13 @@
   .btn-insta{gap:10px}
   .btn-insta svg{width:20px;height:20px}
 
+  .ig-embed{background:#fff;border:0;border-radius:3px;margin:1px;max-width:540px;min-width:300px;width:calc(100% - 2px);box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15)}
+  .ig-embed a{display:block;padding:24px;text-align:center;font-size:.95rem;color:var(--azul)}
+  .sobre .foto.com-video{align-items:center;padding:56px 32px}
+  .sobre .foto.com-video > svg{display:none}
+  .sobre .foto.com-video .ig-embed{position:relative;z-index:1;margin:0 auto}
+  .videos-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start}
+  .videos-grid .ig-embed{margin:0 auto}
   .contato{padding:112px 0}
   .contato-box{background:#fff;border:1px solid var(--dourado);padding:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
   .contato-box h2{font-size:clamp(2rem,3.4vw,2.8rem);color:var(--azul)}
@@ -193,6 +201,7 @@
     #nav ul{gap:22px}
     .etapas{grid-template-columns:repeat(2,minmax(0,1fr))}
     .insta-grid{grid-template-columns:1fr}
+    .videos-grid{grid-template-columns:1fr;justify-items:center}
     .duvidas{grid-template-columns:1fr;gap:40px}
   }
   @media (max-width:860px){
@@ -336,7 +345,7 @@
 </section>
 
 <section class="sobre" id="sobre">
-  <div class="foto">
+  <div class="foto" id="foto-sobre">
     <svg viewBox="0 0 100 132" aria-hidden="true"><g fill="#b49265"><rect x="28" y="5" width="44" height="7"/><rect x="46" y="12" width="8" height="112"/><rect x="28" y="120" width="44" height="7"/><path d="M20 80 V52 A30 30 0 0 1 80 52 V80" fill="none" stroke="#b49265" stroke-width="6.5"/><path d="M6 80 H34 Q20 97 6 80 Z"/><path d="M66 80 H94 Q80 97 66 80 Z"/></g></svg>
     <!-- Foto: adicione o arquivo foto-cibelly.jpg na raiz do site. Enquanto ele não existir, aparece o símbolo da marca. -->
     <img src="foto-cibelly.jpg" alt="Cibelly Maria Lopes da Silva, advogada" loading="lazy" onerror="this.remove()">
@@ -390,7 +399,8 @@
       </div>
       <a class="btn btn-azul btn-insta" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Ver perfil no Instagram</a>
     </div>
-    <div class="insta-grid">
+    <div class="videos-grid" id="videos-instagram" hidden></div>
+    <div class="insta-grid" id="temas-instagram">
       <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener">
         <h3>Família</h3>
         <p>Guarda, pensão alimentícia, divórcio, partilha e acordos.</p>
@@ -452,6 +462,51 @@
   <span>WhatsApp</span>
 </a>
 
+<script>
+  /* ===== Vídeos do Instagram =====
+     Cole os links dos Reels ou posts (ex.: https://www.instagram.com/reel/ABC123/).
+     - VIDEO_APRESENTACAO: aparece na seção "Sobre", no lugar da foto.
+     - VIDEOS_INSTAGRAM: até 3 vídeos na seção "Instagram", no lugar dos cartões de tema.
+     Enquanto estiverem vazios, o site mostra o símbolo da marca e os cartões de tema. */
+  var VIDEO_APRESENTACAO = '';
+  var VIDEOS_INSTAGRAM = [];
+
+  (function(){
+    function embed(url){
+      var q = document.createElement('blockquote');
+      q.className = 'instagram-media ig-embed';
+      q.setAttribute('data-instgrm-permalink', url);
+      q.setAttribute('data-instgrm-version', '14');
+      var a = document.createElement('a');
+      a.href = url; a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'Ver este vídeo no Instagram';
+      q.appendChild(a);
+      return q;
+    }
+    var valido = function(u){ return /^https:\/\/(www\.)?instagram\.com\/(reel|p|tv)\/[\w-]+\/?/.test(u); };
+    var usou = false;
+    if (valido(VIDEO_APRESENTACAO)) {
+      var foto = document.getElementById('foto-sobre');
+      var img = foto.querySelector('img'); if (img) img.remove();
+      foto.classList.add('com-video');
+      foto.appendChild(embed(VIDEO_APRESENTACAO));
+      usou = true;
+    }
+    var lista = VIDEOS_INSTAGRAM.filter(valido).slice(0, 3);
+    if (lista.length) {
+      var grid = document.getElementById('videos-instagram');
+      lista.forEach(function(u){ grid.appendChild(embed(u)); });
+      grid.hidden = false;
+      document.getElementById('temas-instagram').hidden = true;
+      usou = true;
+    }
+    if (usou) {
+      var s = document.createElement('script');
+      s.async = true; s.src = 'https://www.instagram.com/embed.js';
+      document.body.appendChild(s);
+    }
+  })();
+</script>
 <script>
   document.getElementById('ano').textContent = new Date().getFullYear();
   var nav = document.getElementById('nav');

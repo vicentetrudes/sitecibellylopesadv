@@ -128,11 +128,12 @@
   .area p{font-size:1.05rem}
   .area ul{padding-top:18px;border-top:1px solid var(--cinza);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;font-size:.95rem}
 
-  .sobre{background:#fff;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
-  .sobre .foto{position:relative;background:var(--azul);min-height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .sobre .foto svg{width:120px;opacity:.5}
+  .sobre{background:#fff;display:grid;grid-template-columns:clamp(200px,22vw,300px) minmax(0,1fr)}
+  .sobre.tem-video{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+  .sobre .foto{position:relative;background:var(--azul);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .sobre .foto svg{width:72px;opacity:.5}
   .sobre .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
-  .sobre .texto{padding:104px clamp(24px,6vw,96px);display:flex;flex-direction:column;gap:24px;max-width:760px}
+  .sobre .texto{padding:88px clamp(24px,6vw,96px);display:flex;flex-direction:column;gap:24px;max-width:760px}
   .sobre h2{font-size:clamp(2rem,3.4vw,2.8rem)}
   .sobre p{font-size:1.06rem}
   .linha-tempo{border-left:1px solid var(--dourado);display:flex;flex-direction:column;gap:18px}
@@ -220,7 +221,10 @@
     #nav .nav-cta{justify-content:center;margin-top:12px}
     .areas-grid{grid-template-columns:1fr}
     .sobre{grid-template-columns:1fr}
-    .sobre .foto{min-height:420px}
+    .sobre .foto{min-height:120px}
+    .sobre .texto{padding:56px 24px 72px}
+    .sobre .foto svg{width:44px}
+    .sobre.tem-video .foto{min-height:0}
     .contato-box{grid-template-columns:1fr;padding:40px 28px;gap:32px}
   }
   @media (max-width:600px){
@@ -502,6 +506,7 @@
       var foto = document.getElementById('foto-sobre');
       var img = foto.querySelector('img'); if (img) img.remove();
       foto.classList.add('com-video');
+      foto.parentNode.classList.add('tem-video');
       foto.appendChild(embed(VIDEO_APRESENTACAO));
       usou = true;
     }

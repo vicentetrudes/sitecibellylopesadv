@@ -52,10 +52,10 @@
     --dourado:#b49265;
     --dourado-claro:#d3b98f;
     --dourado-texto:#8a6a3f;
+    --bege:#f3ede4;
     --offwhite:#f7f7f6;
     --cinza:#e6e6e6;
     --linha:#d9d4cb;
-    --branco:#ffffff;
     --texto:#2b3440;
     --texto-sec:#5f6b78;
     --texto-claro:#d7dde4;
@@ -64,181 +64,130 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{
-    font-family:'Mona Sans',system-ui,-apple-system,sans-serif;font-weight:300;
-    color:var(--texto);background:var(--offwhite);line-height:1.7;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
+  body{font-family:'Mona Sans',system-ui,-apple-system,sans-serif;font-weight:300;color:var(--texto);background:var(--offwhite);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   h1,h2,h3{font-family:'Arsenal',Georgia,serif;font-weight:400;line-height:1.15}
   a{color:inherit}
-  img{max-width:100%;display:block}
-  [hidden]{display:none!important}
   ul,ol{list-style:none}
+  [hidden]{display:none!important}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  section{scroll-margin-top:88px}
+  section{scroll-margin-top:80px}
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--dourado);outline-offset:3px}
   .skip{position:absolute;left:-9999px;background:var(--dourado);color:var(--azul-esc);padding:12px 20px;z-index:200;font-weight:600;text-decoration:none}
   .skip:focus{left:12px;top:12px}
-  .eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--dourado-texto)}
+  .eyebrow{display:block;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--dourado-texto)}
+  .sec{padding:96px 0}
+  .sec h2{font-size:clamp(2rem,3.4vw,2.8rem);color:var(--azul)}
 
-  /* ---------- Botões ---------- */
-  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 32px;font-size:1rem;font-weight:500;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;font-size:1rem;font-weight:500;text-decoration:none;transition:background .2s,color .2s}
   .btn-ouro{background:var(--dourado);color:var(--azul-esc);font-weight:600}
   .btn-ouro:hover{background:var(--dourado-claro)}
-  .btn-contorno{border:1px solid rgba(255,255,255,.5);color:#fff}
-  .btn-contorno:hover{border-color:var(--dourado-claro);color:var(--dourado-claro)}
+  .btn-linha{border:1px solid var(--azul);color:var(--azul)}
+  .btn-linha:hover{background:var(--offwhite)}
   .btn-azul{background:var(--azul);color:#fff}
   .btn-azul:hover{background:var(--azul-esc)}
+  .btn{text-align:center}
+  .btn svg{width:20px;height:20px}
 
-  /* ---------- Topo ---------- */
-  .topo{position:relative;overflow:hidden;background:var(--azul);color:#fff}
-  .topo .monograma{position:absolute;right:-4vw;top:40px;font-family:'Arsenal',Georgia,serif;font-style:italic;font-size:clamp(360px,62vw,900px);line-height:.8;letter-spacing:-.06em;color:#fff;opacity:.04;pointer-events:none;user-select:none}
-  header{position:sticky;top:0;z-index:60;background:rgba(31,54,78,.97);border-bottom:1px solid rgba(180,146,101,.3);backdrop-filter:blur(10px)}
-  .nav{height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .lockup{display:flex;align-items:center;gap:14px;text-decoration:none}
-  .lockup svg{width:26px;flex:none}
-  .lockup .nome{display:block;font-family:'Arsenal',Georgia,serif;font-size:1.3rem;letter-spacing:.24em;color:#fff}
-  .lockup .tag{display:block;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dourado-claro);margin-top:2px}
-  #nav ul{display:flex;align-items:center;gap:32px;font-size:.95rem;font-weight:400}
+  /* ---------- Cabeçalho ---------- */
+  header{position:sticky;top:0;z-index:60;background:rgba(31,54,78,.97);border-bottom:1px solid rgba(180,146,101,.25);backdrop-filter:blur(10px)}
+  .nav{height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .lockup{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff}
+  .lockup svg{width:24px;flex:none}
+  .lockup span{font-family:'Arsenal',Georgia,serif;font-size:1.25rem;letter-spacing:.24em;white-space:nowrap}
+  #nav ul{display:flex;align-items:center;gap:30px;font-size:.95rem;font-weight:400}
   #nav a{text-decoration:none;color:#fff}
   #nav a:hover{color:var(--dourado-claro)}
-  #nav .nav-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border:1px solid var(--dourado);color:var(--dourado-claro)}
   .menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;font:inherit;font-size:.9rem;min-height:44px;padding:0 18px;cursor:pointer}
 
-  .hero{position:relative;min-height:calc(100vh - 88px);max-height:900px;display:flex;flex-direction:column}
-  .hero-inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:32px;padding:96px 0 80px}
-  .hero .eyebrow{color:var(--dourado-claro)}
-  .hero h1{max-width:1000px;font-size:clamp(2.5rem,6vw,5.2rem);line-height:1.05}
-  .hero p{max-width:640px;font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--texto-claro)}
-  .hero .acoes{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;padding-top:8px}
-  .faixa{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(180,146,101,.3)}
-  .faixa span{padding:28px 12px;text-align:center;font-size:.95rem;color:var(--texto-claro)}
-  .faixa span+span{border-left:1px solid rgba(180,146,101,.3)}
+  /* ---------- Topo ---------- */
+  .topo{position:relative;overflow:hidden;background:var(--azul);color:#fff;padding:80px 0 88px}
+  .topo .monograma{position:absolute;right:-3vw;top:-40px;font-family:'Arsenal',Georgia,serif;font-style:italic;font-size:clamp(320px,50vw,720px);line-height:.8;letter-spacing:-.06em;color:#fff;opacity:.04;pointer-events:none;user-select:none}
+  .topo-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:72px;align-items:center}
+  .topo .eyebrow{color:var(--dourado-claro)}
+  .topo h1{margin:22px 0;font-size:clamp(2.4rem,5vw,4rem);line-height:1.08}
+  .topo p{font-size:1.12rem;color:var(--texto-claro)}
+  .agenda{background:#fff;color:var(--texto);padding:36px;display:flex;flex-direction:column;gap:14px}
+  .agenda h2{font-size:1.75rem;color:var(--azul)}
+  .agenda p{font-size:.95rem;color:var(--texto)}
+  .agenda .end{font-size:.88rem;color:var(--texto-sec)}
 
-  /* ---------- Seções ---------- */
-  .sec{padding:112px 0}
-  .sec h2{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--azul)}
-  .centro{text-align:center}
+  /* ---------- Áreas ---------- */
+  .areas-grid{margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--azul)}
+  .area{padding:36px 40px 40px 0;display:flex;flex-direction:column;gap:16px;border-bottom:1px solid var(--linha)}
+  .area:nth-child(2n){padding:36px 0 40px 40px;border-left:1px solid var(--linha)}
+  .area h3{font-size:1.8rem;color:var(--azul)}
+  .area .desc{font-size:1.02rem}
+  .area ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 28px}
+  .area li{font-size:.93rem;line-height:1.5;color:var(--texto-sec)}
+  .area li strong{display:block;font-weight:500;color:var(--azul);font-size:.98rem}
+  .area .docs{margin-top:4px;padding:14px 18px;background:var(--bege);font-size:.9rem;line-height:1.55}
+  .area .docs strong{font-weight:500;color:var(--dourado-texto)}
 
-  .areas-grid{margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
-  .area{background:#fff;border:1px solid var(--cinza);padding:44px;display:flex;flex-direction:column;gap:18px}
-  .area .icone{width:56px;height:56px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center}
-  .area .icone svg{width:26px;height:26px}
-  .area h3{font-size:2rem;color:var(--azul)}
-  .area p{font-size:1.05rem}
-  .area ul{padding-top:18px;border-top:1px solid var(--cinza);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;font-size:.95rem}
+  /* ---------- Sobre + Atendimento ---------- */
+  .sobre-atend{background:#fff}
+  .duas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px}
+  .duas h2{margin-bottom:18px}
+  .duas p{font-size:1.05rem}
+  .duas .link{display:inline-block;margin-top:16px;font-size:.95rem;font-weight:500;color:var(--azul)}
+  .etapas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 32px;font-size:.98rem;line-height:1.55}
+  .etapas strong{display:block;font-weight:500;color:var(--azul)}
 
-  .sobre{background:#fff;display:grid;grid-template-columns:clamp(200px,22vw,300px) minmax(0,1fr)}
-  .sobre.tem-video{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
-  .sobre .foto{position:relative;background:var(--azul);display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .sobre .foto svg{width:72px;opacity:.5}
-  .sobre .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
-  .sobre .texto{padding:88px clamp(24px,6vw,96px);display:flex;flex-direction:column;gap:24px;max-width:760px}
-  .sobre h2{font-size:clamp(2rem,3.4vw,2.8rem)}
-  .sobre p{font-size:1.06rem}
-  .linha-tempo{border-left:1px solid var(--dourado);display:flex;flex-direction:column;gap:18px}
-  .linha-tempo li{padding-left:26px;display:flex;flex-direction:column}
-  .linha-tempo .ano{font-size:.82rem;font-weight:500;color:var(--dourado-texto)}
-  .linha-tempo .item{font-size:1rem;font-weight:500;color:var(--azul)}
-  .link{font-size:.95rem;font-weight:500;color:var(--azul)}
-  .link:hover{color:var(--dourado-texto)}
-
-  .atendimento{background:var(--azul);color:#fff}
-  .atendimento h2{color:#fff}
-  .etapas{margin-top:56px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(180,146,101,.35);border-left:1px solid rgba(180,146,101,.35)}
-  .etapas li{padding:40px 36px;border-right:1px solid rgba(180,146,101,.35);border-bottom:1px solid rgba(180,146,101,.35);display:flex;flex-direction:column;gap:12px}
-  .etapas .num{font-family:'Arsenal',Georgia,serif;font-size:1.25rem;color:var(--dourado-claro)}
-  .etapas h3{font-size:1.6rem;color:#fff}
-  .etapas p{font-size:1rem;color:var(--texto-claro)}
-
-  .duvidas{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:88px}
-  .faq{border-top:1px solid var(--linha)}
-  .faq details{border-bottom:1px solid var(--linha);padding:26px 0}
-  .faq summary{font-family:'Arsenal',Georgia,serif;font-size:1.45rem;color:var(--azul);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px}
-  .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:'+';font-family:'Mona Sans',sans-serif;font-weight:300;color:var(--dourado-texto)}
-  .faq details[open] summary::after{content:'−'}
-  .faq p{margin-top:14px;font-size:1rem}
-
-  .insta{background:#fff}
-  .insta-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 64px}
-  .insta-topo p{max-width:520px;font-size:1.05rem;margin-top:12px}
-  .insta-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-  .insta-card{border:1px solid var(--cinza);border-top:3px solid var(--dourado);padding:36px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:border-color .2s,box-shadow .2s}
-  .insta-card:hover{border-color:var(--dourado);box-shadow:0 12px 32px rgba(31,54,78,.08)}
-  .insta-card .selo{align-self:flex-start;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--dourado-texto);background:#f3ede4;padding:4px 10px}
-  .insta-card h3{font-size:1.6rem;color:var(--azul)}
-  .insta-card p{font-size:1rem}
-  .insta-card .ver{margin-top:auto;padding-top:8px;font-size:.92rem;font-weight:500;color:var(--dourado-texto)}
-  .btn-insta{gap:10px}
-  .btn-insta svg{width:20px;height:20px}
-
-  .ig-embed{background:#fff;border:0;border-radius:3px;margin:1px;max-width:540px;min-width:300px;width:calc(100% - 2px);box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15)}
-  .ig-embed a{display:block;padding:24px;text-align:center;font-size:.95rem;color:var(--azul)}
-  .sobre .foto.com-video{align-items:center;padding:56px 32px}
-  .sobre .foto.com-video > svg{display:none}
-  .sobre .foto.com-video .ig-embed{position:relative;z-index:1;margin:0 auto}
-  .seguidores{display:inline-block;margin-left:10px;padding:2px 8px;background:#f3ede4;color:var(--dourado-texto);letter-spacing:.06em}
-  .insta-feed{margin-top:48px;min-height:320px;border:1px solid var(--cinza);padding:8px;--behold-gap:8px;--behold-border-radius:0;--behold-row-height:220px}
+  /* ---------- Instagram ---------- */
+  .insta-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 48px}
+  .insta-topo h2{margin-top:8px}
+  .insta-topo p{margin-top:8px;font-size:.95rem;color:var(--texto-sec)}
+  .seguidores{margin-left:10px;padding:2px 8px;background:var(--bege);letter-spacing:.06em}
+  .insta-feed{margin-top:36px;min-height:320px;border:1px solid var(--cinza);background:#fff;padding:8px;--behold-gap:8px;--behold-border-radius:0;--behold-row-height:240px}
   .insta-feed behold-widget{display:block;width:100%}
-  .insta-grid{display:none}
+  .insta-grid{display:none;margin-top:36px;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
   .sem-feed .insta-feed{display:none}
   .sem-feed .insta-grid{display:grid}
-  .contato{padding:112px 0}
-  .contato-box{background:#fff;border:1px solid var(--dourado);padding:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
-  .contato-box h2{font-size:clamp(2rem,3.4vw,2.8rem);color:var(--azul)}
-  .contato-box .dados{margin-top:18px;display:flex;flex-direction:column;gap:6px;font-size:1rem}
-  .contato-box .dados a{color:var(--azul)}
-  .contato-box .acoes{display:flex;flex-direction:column;gap:12px}
-  .contato-box .btn-linha{border:1px solid var(--azul);color:var(--azul)}
-  .contato-box .btn-linha:hover{background:var(--offwhite)}
-  .privacidade{margin-top:28px;font-size:.88rem;color:var(--texto-sec);max-width:880px}
+  .insta-card{background:#fff;border:1px solid var(--cinza);border-top:3px solid var(--dourado);padding:30px;display:flex;flex-direction:column;gap:10px;text-decoration:none}
+  .insta-card:hover{border-color:var(--dourado)}
+  .insta-card .selo{align-self:flex-start;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--dourado-texto);background:var(--bege);padding:4px 10px}
+  .insta-card h3{font-size:1.45rem;color:var(--azul)}
+  .insta-card p{font-size:.95rem}
 
-  footer{background:var(--azul);color:#aab4bf;padding:56px 0 40px;font-size:.9rem}
-  .rodape{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:24px}
+  /* ---------- Dúvidas ---------- */
+  .faq{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+  .faq div{padding:20px 0;border-top:1px solid var(--linha)}
+  .faq strong{display:block;font-weight:500;color:var(--azul);font-size:1.05rem}
+  .faq span{font-size:.95rem}
+  .privacidade{margin-top:32px;font-size:.85rem;color:var(--texto-sec);max-width:880px}
+
+  footer{background:var(--azul);color:#aab4bf;padding:48px 0 36px;font-size:.9rem}
+  .rodape{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
   .rodape .marca{font-family:'Arsenal',Georgia,serif;font-size:1.1rem;letter-spacing:.24em;color:var(--dourado-claro)}
   .rodape ul{display:flex;flex-wrap:wrap;gap:8px 24px}
   .rodape a{text-decoration:none}
   .rodape a:hover{color:var(--dourado-claro)}
-  .disclaimer{margin-top:32px;padding-top:24px;border-top:1px solid rgba(180,146,101,.25);font-size:.8rem;line-height:1.6;color:#8f9aa6}
+  .disclaimer{margin-top:28px;padding-top:22px;border-top:1px solid rgba(180,146,101,.25);font-size:.8rem;line-height:1.6;color:#8f9aa6}
 
   .float-wa{position:fixed;right:20px;bottom:20px;z-index:70;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:26px;background:var(--dourado);color:var(--azul-esc);font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(22,40,58,.25)}
   .float-wa svg{width:20px;height:20px}
 
   /* ---------- Responsivo ---------- */
-  @media (max-width:1024px){
-    #nav ul{gap:22px}
-    .etapas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width:980px){
+    .topo-grid,.duas{grid-template-columns:1fr;gap:48px}
+    .areas-grid{grid-template-columns:1fr}
+    .area,.area:nth-child(2n){padding:32px 0;border-left:none}
     .insta-grid{grid-template-columns:1fr}
-    .insta-feed{--behold-row-height:160px}
-    .duvidas{grid-template-columns:1fr;gap:40px}
   }
-  @media (max-width:860px){
+  @media (max-width:820px){
     .menu-btn{display:inline-flex;align-items:center}
-    #nav ul{display:none;position:absolute;left:0;right:0;top:88px;background:var(--azul);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 24px;border-bottom:1px solid rgba(180,146,101,.3)}
+    #nav ul{display:none;position:absolute;left:0;right:0;top:80px;background:var(--azul);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 24px;border-bottom:1px solid rgba(180,146,101,.3)}
     #nav.open ul{display:flex}
     #nav ul li a{display:flex;min-height:48px;align-items:center}
-    #nav .nav-cta{justify-content:center;margin-top:12px}
-    .areas-grid{grid-template-columns:1fr}
-    .sobre{grid-template-columns:1fr}
-    .sobre .foto{min-height:120px}
-    .sobre .texto{padding:56px 24px 72px}
-    .sobre .foto svg{width:44px}
-    .sobre.tem-video .foto{min-height:0}
-    .contato-box{grid-template-columns:1fr;padding:40px 28px;gap:32px}
   }
   @media (max-width:600px){
-    .sec{padding:80px 0}
-    .hero{min-height:auto}
-    .hero-inner{padding:72px 0 56px}
-    .faixa{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .faixa span:nth-child(3){border-left:none}
-    .faixa span:nth-child(n+3){border-top:1px solid rgba(180,146,101,.3)}
-    .area{padding:32px 24px}
+    .sec{padding:72px 0}
+    .topo{padding:56px 0 64px}
+    .agenda{padding:28px 22px}
+    .agenda .btn{padding:0 16px;font-size:.95rem;white-space:nowrap}
+    .lockup span{font-size:1.05rem;letter-spacing:.16em}
     .area ul{grid-template-columns:1fr}
-    .etapas{grid-template-columns:1fr}
-    .lockup .tag{display:none}
-    .lockup .nome{font-size:1.05rem;letter-spacing:.16em;white-space:nowrap}
+    .etapas,.faq{grid-template-columns:1fr}
+    .insta-feed{--behold-row-height:160px}
     .float-wa span{display:none}
     .float-wa{padding:0 16px}
   }
@@ -249,209 +198,156 @@
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
 <header>
-    <div class="wrap nav">
-      <a href="#topo" class="lockup" aria-label="Cibelly Lopes — Advocacia e Consultoria Jurídica">
-        <svg viewBox="0 0 100 132" aria-hidden="true"><g fill="#b49265"><rect x="28" y="5" width="44" height="7"/><rect x="46" y="12" width="8" height="112"/><rect x="28" y="120" width="44" height="7"/><path d="M20 80 V52 A30 30 0 0 1 80 52 V80" fill="none" stroke="#b49265" stroke-width="6.5"/><path d="M6 80 H34 Q20 97 6 80 Z"/><path d="M66 80 H94 Q80 97 66 80 Z"/></g></svg>
-        <span>
-          <span class="nome">CIBELLY LOPES</span>
-          <span class="tag">Advocacia e Consultoria Jurídica</span>
-        </span>
-      </a>
-      <nav id="nav" aria-label="Navegação principal">
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
-        <ul id="menu">
-          <li><a href="#areas">Áreas</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#atendimento">Atendimento</a></li>
-          <li><a href="#duvidas">Dúvidas</a></li>
-          <li><a href="#instagram">Instagram</a></li>
-          <li><a class="nav-cta" href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-</header>
-
-<div class="topo" id="topo">
-  <div class="monograma" aria-hidden="true">CL</div>
-
-
-  <div class="hero">
-    <div class="wrap hero-inner">
-      <span class="eyebrow">Advocacia e Consultoria Jurídica</span>
-      <h1>Direito do Trabalho, Cível, Família e Previdenciário.</h1>
-      <p>Atendimento em Iguape/SP, São Paulo/SP e online, com hora marcada.</p>
-      <div class="acoes">
-        <a class="btn btn-ouro" href="https://wa.me/5511968421883" target="_blank" rel="noopener">Agendar consulta</a>
-        <a class="btn btn-contorno" href="#areas">Áreas de atuação</a>
-      </div>
-    </div>
-    <div class="faixa">
-      <span>OAB/SP 471.453</span>
-      <span>Iguape/SP · São Paulo/SP</span>
-      <span>Presencial e por videochamada</span>
-      <span>Seg. a sex., das 13h às 17h</span>
-    </div>
+  <div class="wrap nav">
+    <a href="#topo" class="lockup" aria-label="Cibelly Lopes — Advocacia e Consultoria Jurídica">
+      <svg viewBox="0 0 100 132" aria-hidden="true"><g fill="#b49265"><rect x="28" y="5" width="44" height="7"/><rect x="46" y="12" width="8" height="112"/><rect x="28" y="120" width="44" height="7"/><path d="M20 80 V52 A30 30 0 0 1 80 52 V80" fill="none" stroke="#b49265" stroke-width="6.5"/><path d="M6 80 H34 Q20 97 6 80 Z"/><path d="M66 80 H94 Q80 97 66 80 Z"/></g></svg>
+      <span>CIBELLY LOPES</span>
+    </a>
+    <nav id="nav" aria-label="Navegação principal">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu">
+        <li><a href="#areas">Áreas</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+      </ul>
+    </nav>
   </div>
-</div>
+</header>
 
 <main id="conteudo">
 
+<section class="topo" id="topo">
+  <div class="monograma" aria-hidden="true">CL</div>
+  <div class="wrap topo-grid">
+    <div>
+      <span class="eyebrow">Advocacia e Consultoria Jurídica</span>
+      <h1>Trabalho, Cível, Família e Previdenciário.</h1>
+      <p>Cibelly Maria Lopes da Silva · <span style="white-space:nowrap">OAB/SP 471.453</span><br>Iguape/SP, São Paulo/SP e online.</p>
+    </div>
+    <div class="agenda" id="contato">
+      <h2>Agendar consulta</h2>
+      <p>Seg. a sex., das 13h às 17h, com hora marcada. Também por videochamada.</p>
+      <a class="btn btn-ouro" href="https://wa.me/5511968421883" target="_blank" rel="noopener">WhatsApp (11) 96842-1883</a>
+      <a class="btn btn-linha" href="mailto:cibellymlopes@hotmail.com">cibellymlopes@hotmail.com</a>
+      <span class="end">Rua Latif Corrêa, 29 · Centro · Iguape/SP</span>
+    </div>
+  </div>
+</section>
+
 <section class="sec" id="areas">
   <div class="wrap">
-    <h2 class="centro">Áreas de atuação</h2>
+    <h2>Áreas de atuação</h2>
     <div class="areas-grid">
+
       <article class="area">
-        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="#d3b98f" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></div>
         <h3>Direito do Trabalho</h3>
-        <p>Relações de emprego, para empregados e empregadores.</p>
+        <p class="desc">Atuação para empregados e empregadores, na fase de negociação ou em processo na Justiça do Trabalho.</p>
         <ul>
-          <li>Verbas rescisórias</li>
-          <li>Reconhecimento de vínculo</li>
-          <li>Horas extras e adicionais</li>
-          <li>Assédio moral e rescisão indireta</li>
-          <li>Acidente e doença ocupacional</li>
-          <li>Cálculo e conferência de valores</li>
+          <li><strong>Verbas rescisórias</strong>Conferência do acerto: aviso prévio, férias, 13º, FGTS e multa de 40%.</li>
+          <li><strong>Vínculo de emprego</strong>Reconhecimento de trabalho sem registro na carteira.</li>
+          <li><strong>Horas extras e adicionais</strong>Jornada excedente, adicional noturno, insalubridade e periculosidade.</li>
+          <li><strong>Rescisão indireta</strong>Quando o empregador descumpre o contrato, como atraso de salário ou assédio.</li>
+          <li><strong>Acidente e doença ocupacional</strong>Estabilidade, indenizações e emissão de CAT.</li>
+          <li><strong>Cálculos trabalhistas</strong>Conferência de valores em acordos e sentenças.</li>
         </ul>
+        <p class="docs"><strong>Documentos úteis:</strong> carteira de trabalho, holerites, termo de rescisão (TRCT), extrato do FGTS e conversas com o empregador.</p>
       </article>
+
       <article class="area">
-        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="#d3b98f" stroke-width="1.6" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg></div>
         <h3>Cível e Contratos</h3>
-        <p>Contratos, indenizações, cobranças e relações de consumo.</p>
+        <p class="desc">Questões de contratos, dívidas, danos e relações de consumo, com tentativa de acordo antes do processo quando possível.</p>
         <ul>
-          <li>Elaboração e revisão de contratos</li>
-          <li>Responsabilidade civil e indenizações</li>
-          <li>Cobranças e execuções</li>
-          <li>Relações de consumo</li>
-          <li>Locação e questões imobiliárias</li>
-          <li>Compra e venda de imóveis</li>
+          <li><strong>Contratos</strong>Elaboração e revisão de contratos de prestação de serviço, compra e venda e locação.</li>
+          <li><strong>Indenizações</strong>Danos materiais e morais por acidentes, negativação indevida e outros prejuízos.</li>
+          <li><strong>Cobranças e execuções</strong>Cobrança de valores devidos e defesa em execuções.</li>
+          <li><strong>Relações de consumo</strong>Problemas com bancos, lojas, planos de saúde e empréstimos não contratados.</li>
+          <li><strong>Locação</strong>Despejo, cobrança de aluguel e revisão de contrato.</li>
+          <li><strong>Imóveis</strong>Compra e venda, regularização e usucapião.</li>
         </ul>
+        <p class="docs"><strong>Documentos úteis:</strong> contrato, comprovantes de pagamento, notas fiscais, extratos, protocolos de atendimento e mensagens trocadas.</p>
       </article>
+
       <article class="area">
-        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="#d3b98f" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.3-4.5 3-4.5s4 2 4 4.5"/></svg></div>
         <h3>Família e Sucessões</h3>
-        <p>Divórcio, guarda, alimentos, partilha e inventário.</p>
+        <p class="desc">Condução de questões familiares com preferência por acordo, e ação judicial quando necessária.</p>
         <ul>
-          <li>Divórcio e dissolução de união estável</li>
-          <li>Guarda, convivência e alimentos</li>
-          <li>Execução e revisão de alimentos</li>
-          <li>Partilha de bens</li>
-          <li>Inventário</li>
-          <li>Reconhecimento de paternidade</li>
+          <li><strong>Divórcio e união estável</strong>Consensual ou litigioso, em cartório ou na Justiça.</li>
+          <li><strong>Guarda e convivência</strong>Guarda compartilhada ou unilateral e regulamentação de visitas.</li>
+          <li><strong>Pensão alimentícia</strong>Fixação, revisão, execução e exoneração de alimentos.</li>
+          <li><strong>Partilha de bens</strong>Divisão de bens no divórcio ou na dissolução da união.</li>
+          <li><strong>Inventário</strong>Judicial ou em cartório, e partilha da herança.</li>
+          <li><strong>Paternidade</strong>Reconhecimento e investigação de paternidade.</li>
         </ul>
+        <p class="docs"><strong>Documentos úteis:</strong> certidões de casamento e nascimento, documentos dos bens e comprovantes de renda e despesas.</p>
       </article>
+
       <article class="area">
-        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="#d3b98f" stroke-width="1.6" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Previdenciário</h3>
-        <p>Benefícios, revisões e recursos junto ao INSS.</p>
+        <p class="desc">Pedidos e recursos junto ao INSS e ações judiciais de benefícios, a partir da análise do histórico de contribuições.</p>
         <ul>
-          <li>Aposentadorias</li>
-          <li>Auxílio por incapacidade temporária</li>
-          <li>Aposentadoria por incapacidade permanente</li>
-          <li>Salário-maternidade</li>
-          <li>Pensão por morte e BPC/LOAS</li>
-          <li>Revisões e recursos administrativos</li>
+          <li><strong>Aposentadorias</strong>Por idade, tempo de contribuição e especial, com simulação das regras.</li>
+          <li><strong>Auxílio por incapacidade</strong>Antigo auxílio-doença, inclusive após perícia negada.</li>
+          <li><strong>Incapacidade permanente</strong>Aposentadoria por invalidez.</li>
+          <li><strong>Salário-maternidade</strong>Para empregadas, autônomas, desempregadas e seguradas especiais.</li>
+          <li><strong>Pensão por morte e BPC/LOAS</strong>Para dependentes, idosos e pessoas com deficiência de baixa renda.</li>
+          <li><strong>Revisões e recursos</strong>Revisão do valor do benefício e recurso contra indeferimento.</li>
         </ul>
+        <p class="docs"><strong>Documentos úteis:</strong> extrato do CNIS (Meu INSS), carteiras de trabalho, laudos e exames médicos e a carta de indeferimento, se houver.</p>
       </article>
+
     </div>
   </div>
 </section>
 
-<section class="sobre" id="sobre">
-  <div class="foto" id="foto-sobre">
-    <svg viewBox="0 0 100 132" aria-hidden="true"><g fill="#b49265"><rect x="28" y="5" width="44" height="7"/><rect x="46" y="12" width="8" height="112"/><rect x="28" y="120" width="44" height="7"/><path d="M20 80 V52 A30 30 0 0 1 80 52 V80" fill="none" stroke="#b49265" stroke-width="6.5"/><path d="M6 80 H34 Q20 97 6 80 Z"/><path d="M66 80 H94 Q80 97 66 80 Z"/></g></svg>
-    <!-- Foto: adicione o arquivo foto-cibelly.jpg na raiz do site. Enquanto ele não existir, aparece o símbolo da marca. -->
-    <img src="foto-cibelly.jpg" alt="Cibelly Maria Lopes da Silva, advogada" loading="lazy" onerror="this.remove()">
-  </div>
-  <div class="texto">
-    <span class="eyebrow">Sobre</span>
-    <h2>Cibelly Maria Lopes da Silva</h2>
-    <p>Advogada inscrita na OAB/SP sob o nº 471.453, com atuação consultiva e contenciosa nas áreas trabalhista, cível, de família e previdenciária. Atende clientes particulares e pelo convênio da Defensoria Pública, em Iguape/SP, na capital e a distância.</p>
-    <p>Antes da advocacia, atuou no setor de Tributos da Prefeitura Municipal de Iguape e no Tribunal de Justiça do Estado de São Paulo, na área criminal. Publica artigos na plataforma JusBrasil.</p>
-    <ol class="linha-tempo">
-      <li><span class="ano">2021</span><span class="item">Bacharel em Direito — UNIVR</span></li>
-      <li><span class="ano">2022</span><span class="item">Prática Trabalhista (CEISC) e Cálculo Trabalhista</span></li>
-      <li><span class="ano">Desde 2022</span><span class="item">Advocacia autônoma</span></li>
-    </ol>
-    <a class="link" href="https://cna.oab.org.br/" target="_blank" rel="noopener">Consultar inscrição no Cadastro Nacional dos Advogados →</a>
-  </div>
-</section>
-
-<section class="sec atendimento" id="atendimento">
-  <div class="wrap">
-    <h2 class="centro">Como funciona o atendimento</h2>
-    <ol class="etapas">
-      <li><span class="num">01</span><h3>Agendamento</h3><p>Contato por WhatsApp, e-mail ou telefone para marcar a consulta, presencial ou por videochamada.</p></li>
-      <li><span class="num">02</span><h3>Consulta</h3><p>Análise dos documentos do caso e orientação sobre os caminhos possíveis, prazos e custos.</p></li>
-      <li><span class="num">03</span><h3>Contrato</h3><p>Honorários definidos em contrato escrito, conforme a Tabela da OAB/SP.</p></li>
-      <li><span class="num">04</span><h3>Acompanhamento</h3><p>Informação sobre as movimentações do processo até a conclusão.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section class="sec" id="duvidas">
-  <div class="wrap duvidas">
-    <h2>Dúvidas frequentes</h2>
-    <div class="faq">
-      <details open><summary>A primeira consulta é cobrada?</summary><p>Sim. A consulta tem honorários próprios, conforme a Tabela da OAB/SP. O valor é informado no agendamento.</p></details>
-      <details><summary>Quais documentos devo levar?</summary><p>Documento de identidade, CPF, comprovante de residência e os documentos relacionados ao caso, como contratos, carteira de trabalho, holerites, extratos, laudos ou documentos do INSS.</p></details>
-      <details><summary>Quanto tempo demora um processo?</summary><p>Depende da complexidade do caso, da comarca e da parte contrária. Não é possível garantir prazo; na consulta é apresentada uma estimativa.</p></details>
-      <details><summary>Como são cobrados os honorários?</summary><p>Em contrato escrito, antes do início do trabalho, conforme a Tabela da OAB/SP. Podem ser fixos, parcelados ou vinculados ao êxito.</p></details>
-      <details><summary>Atende clientes de outras cidades?</summary><p>Sim. Além de Iguape/SP e do Vale do Ribeira, o atendimento é feito na capital e a distância, por videochamada.</p></details>
+<section class="sec sobre-atend" id="sobre">
+  <div class="wrap duas">
+    <div>
+      <h2>Sobre</h2>
+      <p>Cibelly Maria Lopes da Silva é advogada inscrita na OAB/SP sob o nº 471.453, formada pela UNIVR (2021), com Prática e Cálculo Trabalhista (2022). Atua desde 2022, atendendo clientes particulares e pelo convênio da Defensoria Pública. Antes, atuou no setor de Tributos da Prefeitura de Iguape e no Tribunal de Justiça de São Paulo.</p>
+      <a class="link" href="https://cna.oab.org.br/" target="_blank" rel="noopener">Consultar inscrição no Cadastro Nacional dos Advogados →</a>
+    </div>
+    <div id="atendimento">
+      <h2>Atendimento</h2>
+      <ol class="etapas">
+        <li><strong>1. Agendamento</strong>Por WhatsApp, e-mail ou telefone, presencial ou por videochamada.</li>
+        <li><strong>2. Consulta</strong>Análise dos documentos e orientação sobre caminhos, prazos e custos.</li>
+        <li><strong>3. Contrato</strong>Honorários por escrito, conforme a Tabela da OAB/SP.</li>
+        <li><strong>4. Acompanhamento</strong>Informação sobre as movimentações até a conclusão.</li>
+      </ol>
     </div>
   </div>
 </section>
 
-<section class="sec insta" id="instagram">
+<section class="sec" id="instagram">
   <div class="wrap">
     <div class="insta-topo">
       <div>
-        <span class="eyebrow">Instagram @cibellylopes_adv<span class="seguidores">+4,5 mil seguidores</span></span>
-        <h2>Conteúdo no Instagram</h2>
-        <p>Publicações informativas sobre direitos e dúvidas comuns. Não substituem a consulta individual.</p>
+        <span class="eyebrow">@cibellylopes_adv<span class="seguidores">+4,5 mil seguidores</span></span>
+        <h2>Instagram</h2>
+        <p>Publicações informativas. Não substituem a consulta individual.</p>
       </div>
-      <a class="btn btn-azul btn-insta" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Ver perfil no Instagram</a>
+      <a class="btn btn-azul" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Ver perfil no Instagram</a>
     </div>
     <div class="insta-feed" aria-label="Publicações recentes no Instagram">
       <behold-widget feed-id="jobfToFFxX6NprXmARWJ"></behold-widget>
     </div>
-    <div class="insta-grid" id="temas-instagram">
-      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener">
-        <span class="selo">Último post</span>
-        <h3>Família</h3>
-        <p>Guarda, pensão alimentícia, divórcio, partilha e acordos.</p>
-        <span class="ver">Ver publicações →</span>
-      </a>
-      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener">
-        <span class="selo">Último post</span>
-        <h3>Previdenciário e INSS</h3>
-        <p>Benefícios, documentos, revisões e etapas do pedido.</p>
-        <span class="ver">Ver publicações →</span>
-      </a>
-      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener">
-        <span class="selo">Último post</span>
-        <h3>Cível e Trabalhista</h3>
-        <p>Contratos, cobranças, relações de consumo e verbas trabalhistas.</p>
-        <span class="ver">Ver publicações →</span>
-      </a>
+    <div class="insta-grid">
+      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener"><span class="selo">Último post</span><h3>Família</h3><p>Guarda, pensão alimentícia, divórcio, partilha e acordos.</p></a>
+      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener"><span class="selo">Último post</span><h3>Previdenciário e INSS</h3><p>Benefícios, documentos, revisões e etapas do pedido.</p></a>
+      <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener"><span class="selo">Último post</span><h3>Cível e Trabalhista</h3><p>Contratos, cobranças, relações de consumo e verbas trabalhistas.</p></a>
     </div>
   </div>
 </section>
 
-<section class="contato" id="contato">
+<section class="sec" id="duvidas" style="padding-top:0">
   <div class="wrap">
-    <div class="contato-box">
-      <div>
-        <h2>Contato</h2>
-        <div class="dados">
-          <span>Atendimento presencial de segunda a sexta, das 13h às 17h, com hora marcada. Também por videochamada.</span>
-          <span>Rua Latif Corrêa, nº 29, Centro — Iguape/SP</span>
-          <a href="mailto:cibellymlopes@hotmail.com">cibellymlopes@hotmail.com</a>
-        </div>
-      </div>
-      <div class="acoes">
-        <a class="btn btn-azul" href="https://wa.me/5511968421883" target="_blank" rel="noopener">WhatsApp (11) 96842-1883</a>
-        <a class="btn btn-linha" href="mailto:cibellymlopes@hotmail.com">Enviar e-mail</a>
-      </div>
+    <h2>Dúvidas frequentes</h2>
+    <div class="faq">
+      <div><strong>A primeira consulta é cobrada?</strong><span>Sim, conforme a Tabela da OAB/SP. O valor é informado no agendamento.</span></div>
+      <div><strong>Quais documentos devo levar?</strong><span>RG, CPF, comprovante de residência e os documentos do caso, indicados em cada área acima.</span></div>
+      <div><strong>Como são cobrados os honorários?</strong><span>Em contrato escrito, antes do início do trabalho. Podem ser fixos, parcelados ou vinculados ao êxito.</span></div>
+      <div><strong>Atende outras cidades?</strong><span>Sim. Além de Iguape e do Vale do Ribeira, na capital e a distância, por videochamada.</span></div>
     </div>
     <p class="privacidade">As informações compartilhadas no primeiro contato estão protegidas pelo sigilo profissional e são usadas apenas para a análise do caso, conforme a Lei nº 13.709/2018 (LGPD).</p>
   </div>
@@ -479,44 +375,6 @@
   <span>WhatsApp</span>
 </a>
 
-<script>
-  /* ===== Vídeos do Instagram =====
-     Cole os links dos Reels ou posts (ex.: https://www.instagram.com/reel/ABC123/).
-     - VIDEO_APRESENTACAO: aparece na seção "Sobre", no lugar da foto.
-     Enquanto estiver vazio, o site mostra o símbolo da marca.
-     A seção "Instagram" usa o feed do Behold.so (ID jobfToFFxX6NprXmARWJ), que se atualiza sozinho;
-     se o feed não carregar, aparecem os cartões de tema. */
-  var VIDEO_APRESENTACAO = '';
-
-  (function(){
-    function embed(url){
-      var q = document.createElement('blockquote');
-      q.className = 'instagram-media ig-embed';
-      q.setAttribute('data-instgrm-permalink', url);
-      q.setAttribute('data-instgrm-version', '14');
-      var a = document.createElement('a');
-      a.href = url; a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = 'Ver este vídeo no Instagram';
-      q.appendChild(a);
-      return q;
-    }
-    var valido = function(u){ return /^https:\/\/(www\.)?instagram\.com\/(reel|p|tv)\/[\w-]+\/?/.test(u); };
-    var usou = false;
-    if (valido(VIDEO_APRESENTACAO)) {
-      var foto = document.getElementById('foto-sobre');
-      var img = foto.querySelector('img'); if (img) img.remove();
-      foto.classList.add('com-video');
-      foto.parentNode.classList.add('tem-video');
-      foto.appendChild(embed(VIDEO_APRESENTACAO));
-      usou = true;
-    }
-    if (usou) {
-      var s = document.createElement('script');
-      s.async = true; s.src = 'https://www.instagram.com/embed.js';
-      document.body.appendChild(s);
-    }
-  })();
-</script>
 <script>
   document.getElementById('ano').textContent = new Date().getFullYear();
   var nav = document.getElementById('nav');

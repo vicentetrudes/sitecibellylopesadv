@@ -37,6 +37,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Mona+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://w.behold.so">
+<link rel="preconnect" href="https://content.behold.so">
+<script src="https://w.behold.so/widget.js" type="module" onerror="document.documentElement.classList.add('sem-feed')"></script>
 <style>
   /* ===== Identidade visual da marca — Cibelly Lopes =====
      Azul      #1f364e    Dourado  #b49265
@@ -174,8 +177,12 @@
   .sobre .foto.com-video{align-items:center;padding:56px 32px}
   .sobre .foto.com-video > svg{display:none}
   .sobre .foto.com-video .ig-embed{position:relative;z-index:1;margin:0 auto}
-  .videos-grid{margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start}
-  .videos-grid .ig-embed{margin:0 auto}
+  .seguidores{display:inline-block;margin-left:10px;padding:2px 8px;background:#f3ede4;color:var(--dourado-texto);letter-spacing:.06em}
+  .insta-feed{margin-top:48px;min-height:320px;border:1px solid var(--cinza);padding:8px;--behold-gap:8px;--behold-border-radius:0;--behold-row-height:220px}
+  .insta-feed behold-widget{display:block;width:100%}
+  .insta-grid{display:none}
+  .sem-feed .insta-feed{display:none}
+  .sem-feed .insta-grid{display:grid}
   .contato{padding:112px 0}
   .contato-box{background:#fff;border:1px solid var(--dourado);padding:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
   .contato-box h2{font-size:clamp(2rem,3.4vw,2.8rem);color:var(--azul)}
@@ -202,7 +209,7 @@
     #nav ul{gap:22px}
     .etapas{grid-template-columns:repeat(2,minmax(0,1fr))}
     .insta-grid{grid-template-columns:1fr}
-    .videos-grid{grid-template-columns:1fr;justify-items:center}
+    .insta-feed{--behold-row-height:160px}
     .duvidas{grid-template-columns:1fr;gap:40px}
   }
   @media (max-width:860px){
@@ -394,13 +401,15 @@
   <div class="wrap">
     <div class="insta-topo">
       <div>
-        <span class="eyebrow">Instagram @cibellylopes_adv</span>
+        <span class="eyebrow">Instagram @cibellylopes_adv<span class="seguidores">+4,5 mil seguidores</span></span>
         <h2>Conteúdo no Instagram</h2>
         <p>Publicações informativas sobre direitos e dúvidas comuns. Não substituem a consulta individual.</p>
       </div>
       <a class="btn btn-azul btn-insta" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Ver perfil no Instagram</a>
     </div>
-    <div class="videos-grid" id="videos-instagram" hidden></div>
+    <div class="insta-feed" aria-label="Publicações recentes no Instagram">
+      <behold-widget feed-id="jobfToFFxX6NprXmARWJ"></behold-widget>
+    </div>
     <div class="insta-grid" id="temas-instagram">
       <a class="insta-card" href="https://www.instagram.com/cibellylopes_adv/" target="_blank" rel="noopener">
         <span class="selo">Último post</span>
@@ -470,10 +479,10 @@
   /* ===== Vídeos do Instagram =====
      Cole os links dos Reels ou posts (ex.: https://www.instagram.com/reel/ABC123/).
      - VIDEO_APRESENTACAO: aparece na seção "Sobre", no lugar da foto.
-     - VIDEOS_INSTAGRAM: até 3 vídeos na seção "Instagram", no lugar dos cartões de tema.
-     Enquanto estiverem vazios, o site mostra o símbolo da marca e os cartões de tema. */
+     Enquanto estiver vazio, o site mostra o símbolo da marca.
+     A seção "Instagram" usa o feed do Behold.so (ID jobfToFFxX6NprXmARWJ), que se atualiza sozinho;
+     se o feed não carregar, aparecem os cartões de tema. */
   var VIDEO_APRESENTACAO = '';
-  var VIDEOS_INSTAGRAM = [];
 
   (function(){
     function embed(url){
@@ -494,14 +503,6 @@
       var img = foto.querySelector('img'); if (img) img.remove();
       foto.classList.add('com-video');
       foto.appendChild(embed(VIDEO_APRESENTACAO));
-      usou = true;
-    }
-    var lista = VIDEOS_INSTAGRAM.filter(valido).slice(0, 3);
-    if (lista.length) {
-      var grid = document.getElementById('videos-instagram');
-      lista.forEach(function(u){ grid.appendChild(embed(u)); });
-      grid.hidden = false;
-      document.getElementById('temas-instagram').hidden = true;
       usou = true;
     }
     if (usou) {
